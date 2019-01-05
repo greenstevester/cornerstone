@@ -1,6 +1,6 @@
 # Modern Seed
 
-A webapack-based seed project that's a modern JS foundation for web applications
+A webapack-based seed project that's a modern JS/TS foundation for web applications
 
 ## Principles
 
