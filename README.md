@@ -7,6 +7,9 @@ A webapack-based seed project that's a modern JS foundation for web applications
 * Keep things agnostic
   * Use modern JS (modules, features, async/await, etc)
   * Bound to no SPA framework
+* promote good coding practices
+  * tslint
+  * separate unit from e2e testing
 * Support complex projects
   * use webpack
   * use typescript
@@ -34,7 +37,7 @@ A webapack-based seed project that's a modern JS foundation for web applications
 
 * Make sure I can add angular, react, vue, polymer, web components without having to change the core
 * finish WPA support
-* add e2e testing support
-* clean-up sample code
+* add unit and e2e testing support
+* clean-up sample code (apply tslint fixes)
 * clean-up webpack config
 * add a few scripts for dev work-flow
