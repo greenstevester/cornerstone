@@ -1,11 +1,25 @@
-async function loadFirebaseApp() {
-  return await import(/* webpackChunkName: "dynamic" */'./dynamic');
+
+
+
+async function click() {
+  console.log('click!');
+  await import(/* webpackChunkName: "dynamic" */'./dynamic').then((module) => {
+    // @ts-ignore
+    document.querySelector('#output').innerHTML = new module.DynamicModule().getValue();
+  });
 }
 
-loadFirebaseApp()
-  .then(() => {
-    console.log('lazy module loaded');
-  });
+let button:HTMLButtonElement = document.createElement('button');
+button.onclick=click;
+button.innerHTML='load';
+let body = document.querySelector('body');
+// @ts-ignore
+body.appendChild(button);
+let div:HTMLDivElement = document.createElement('div');
+div.id = 'output';
+// @ts-ignore
+body.appendChild(div);
+
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
