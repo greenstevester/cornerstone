@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
   const devMode = (argv.mode !== 'production');
@@ -43,15 +44,32 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.(png|jpe?g|gif)$/,
+          test: /\.(gif|png|jpe?g|svg)$/i,
           use: [
+            'file-loader',
             {
-              loader: 'file-loader',
+              loader: 'image-webpack-loader',
               options: {
-                name: '[name].[ext]',
-                publicPath: '../images',
-                emitFile: true,
-              },
+                mozjpeg: {
+                  progressive: true,
+                  quality: 65,
+                },
+                // optipng.enabled: false will disable optipng
+                optipng: {
+                  enabled: false,
+                },
+                pngquant: {
+                  quality: '65-90',
+                  speed: 4,
+                },
+                gifsicle: {
+                  interlaced: false,
+                },
+                // the webp option will enable WEBP
+                webp: {
+                  quality: 75,
+                },
+              }
             },
           ],
         },
@@ -64,7 +82,9 @@ module.exports = (env, argv) => {
     plugins: [
       new CleanWebpackPlugin(['./dist']),
       new HtmlWebpackPlugin({template: './src/index.html', title: 'Progressive Web Application'}),
-
+      new CopyWebpackPlugin([
+                              {from: 'src/images', to: 'images'},
+                            ]),
       new MiniCssExtractPlugin({
                                  // Options similar to the same options in webpackOptions.output
                                  // both options are optional
@@ -76,6 +96,10 @@ module.exports = (env, argv) => {
   };
 
   if (argv.mode === 'production') {
+    config.entry = [
+      './src/ws-index.ts',
+      './src/index.scss'];
+
     config.plugins.push(
         new WorkboxPlugin.GenerateSW({
                                        importWorkboxFrom: devMode ? 'disabled' : 'cdn',

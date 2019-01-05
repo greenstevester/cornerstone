@@ -11,7 +11,7 @@ async function click() {
 
 let button:HTMLButtonElement = document.createElement('button');
 button.onclick=click;
-button.innerHTML='load';
+button.innerHTML='load dynamic module';
 let body = document.querySelector('body');
 // @ts-ignore
 body.appendChild(button);
@@ -19,14 +19,3 @@ let div:HTMLDivElement = document.createElement('div');
 div.id = 'output';
 // @ts-ignore
 body.appendChild(div);
-
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js').then(registration => {
-      console.log('SW registered: ', registration);
-    }).catch(registrationError => {
-      console.log('SW registration failed: ', registrationError);
-    });
-  });
-}
