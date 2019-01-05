@@ -1,7 +1,40 @@
-### favicon
+# Modern Seed
 
-I used https://www.favicon-generator.org/ to generate the favicon set
+A webapack-based seed project that's a modern JS foundation for web applications
 
-### Open Graph
+## Principles
 
-Reference: http://ogp.me/
+* Keep things agnostic
+  * Use modern JS (modules, features, async/await, etc)
+  * Bound to no SPA framework
+* Support complex projects
+  * use webpack
+  * use typescript
+  * use postcss
+* Keep things lean and fast
+  * webpack/ts config supports dynamic module loading
+  * use closure compiler
+* Keep things robust
+  * Be a WPA
+  * use workbox
+  * still needs some work
+
+## usage
+* add `./node_modules/.bin` to your path so you can avoid installing anything globally... because we all know it's evil!
+
+## Reference
+* https://webpack.js.org - check `package.json` for names of all plugins and loaders used
+* https://www.favicon-generator.org/ to generate the favicon set
+* OG meta-tags http://ogp.me/
+* https://developers.google.com/web/tools/workbox/ - WPA support
+* http://publicicons.org/
+
+
+## Todo
+
+* Make sure I can add angular, react, vue, polymer, web components without having to change the core
+* finish WPA support
+* add e2e testing support
+* clean-up sample code
+* clean-up webpack config
+* add a few scripts for dev work-flow

@@ -1,10 +1,9 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "moduleResolution": "node",
-        "module": "esnext",
-        "strict": true,
-        "importHelpers": true,
-        "lib": ["dom", "es5", "es2015.promise"]
-    }
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {},
+    "rulesDirectory": []
 }

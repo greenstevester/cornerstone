@@ -4,7 +4,8 @@
   "description": "essential seed project for modern JS",
   "main": "src/index.ts",
   "scripts": {
-    "test": "test"
+      "test": "test",
+      "lint": "tslint --project ."
   },
   "keywords": [
     "javascript",
