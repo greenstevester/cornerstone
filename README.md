@@ -39,5 +39,4 @@ A webapack-based seed project that's a modern JS/TS foundation for web applicati
 * finish WPA support
 * add unit and e2e testing support
 * clean-up sample code (apply tslint fixes)
-* clean-up webpack config
 * add a few scripts for dev work-flow

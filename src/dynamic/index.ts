@@ -5,7 +5,7 @@ export class DynamicModule {
   }
 
   getValue(): String {
-      return 'This is dynamic stuff!'
+      return '-> This is dynamic stuff!'
   }
 }
 

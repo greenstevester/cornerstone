@@ -8,16 +8,25 @@ export default function InitDynamicModule() {
     });
   }
 
-  let button:HTMLButtonElement = document.createElement('button');
-  button.onclick=click;
-  button.innerHTML='load dynamic module';
-  let body = document.querySelector('body');
-// @ts-ignore
-  body.appendChild(button);
-  let div:HTMLDivElement = document.createElement('div');
-  div.id = 'output';
-// @ts-ignore
-  body.appendChild(div);
+  let feature: HTMLDivElement = document.createElement('div');
+  feature.onclick = click;
+  feature.className = 'feature';
+
+  let label:HTMLParagraphElement = document.createElement('p');
+  label.innerHTML='load dynamic module';
+  label.className = 'feature-label';
+
+  let p:HTMLParagraphElement = document.createElement('p');
+  p.className = 'feature-label';
+  p.id = 'output';
+
+  let app = document.querySelector('app');
+  // @ts-ignore
+  feature.appendChild(label);
+  // @ts-ignore
+  feature.appendChild(p);
+  // @ts-ignore
+  app.appendChild(feature);
 
 
 }
