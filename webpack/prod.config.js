@@ -14,7 +14,7 @@ module.exports = function configure(env, arg, wdir, config) {
   config.output = {
     path: path.join(wdir, 'dist'),
     filename: '[name].[hash].js',
-    chunkFilename: '[name].[hash].js',
+    chunkFilename: '[name].[chunkhash].js',
   };
 
   config.plugins.push(
@@ -42,11 +42,6 @@ module.exports = function configure(env, arg, wdir, config) {
       new ClosurePlugin({
                           // mode: 'AGGRESSIVE_BUNDLE',
                           mode: 'STANDARD',
-                        },
-                        {
-                          // formatting: 'PRETTY_PRINT',
-                          // debug: devMode,
-                          renaming: true,
                         }),
       new OptimizeCSSAssetsPlugin({}),
     ],
