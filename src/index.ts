@@ -1,3 +1,7 @@
-import InitDynamicModule from "./dynamic-module";
+// import InitDynamicModule from "./dynamic-module";
+//
+// InitDynamicModule();
 
-InitDynamicModule();
+import { DynamicModuleRegistry } from "./dynamic";
+
+DynamicModuleRegistry.feature();

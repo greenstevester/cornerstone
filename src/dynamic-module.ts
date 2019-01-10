@@ -2,7 +2,7 @@ export default function InitDynamicModule() {
 
   async function click() {
     console.log('click!');
-    await import(/* webpackChunkName: "dynamic" */'./dynamic').then((module) => {
+    await import(/* webpackChunkName: "dynamic" */'./dynamic/index-old').then((module) => {
       // @ts-ignore
       document.querySelector('#output').innerHTML = new module.DynamicModule().getValue();
     });
