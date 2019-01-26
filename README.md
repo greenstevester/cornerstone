@@ -15,7 +15,7 @@ A webapack-based seed project that's a modern JS/TS foundation for web applicati
   * use typescript
   * use postcss
 * Keep things lean and fast
-  * webpack/ts config supports dynamic module loading
+  * webpack/ts config supports load module loading
   * use closure compiler
 * Keep things robust
   * Be a WPA

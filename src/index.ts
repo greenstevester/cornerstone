@@ -1,7 +1,9 @@
-// import InitDynamicModule from "./dynamic-module";
+// import InitDynamicModule from "./load-module";
 //
 // InitDynamicModule();
 
-import { DynamicModuleRegistry } from "./dynamic";
+import { DynamicComponents } from "./components";
+import { Views } from "./view";
 
-DynamicModuleRegistry.feature();
+DynamicComponents.load.feature();
+Views.load.app();

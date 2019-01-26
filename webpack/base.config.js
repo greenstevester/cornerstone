@@ -13,6 +13,12 @@ module.exports = function configure(env, argv, wdir) {
       extensions: ['.js', '.ts'],
     },
 
+    resolveLoader: {
+      modules: [ 'node_modules' ],
+      extensions: [ '.js', '.json' ],
+      mainFields: [ 'loader', 'main' ]
+    },
+
     module: {
       rules: [
         {

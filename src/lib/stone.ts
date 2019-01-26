@@ -4,7 +4,7 @@ let id = 0;
 
 // if (!window['mkdn']) window['mkdn'] = {dev: false};
 
-export abstract class BaseElement extends LitElement {
+export abstract class Stone extends LitElement {
   private readonly Id: number;
   private readonly Class: string;
   static tagname: string='';
@@ -13,8 +13,8 @@ export abstract class BaseElement extends LitElement {
     super();
     this.Id = id++;
     this.Class = new.target.name;
-    if (new.target === BaseElement) {
-      throw new TypeError('Cannot construct BaseElement instances directly');
+    if (new.target === Stone) {
+      throw new TypeError('Cannot construct Stone instances directly');
     }
   }
 
@@ -42,7 +42,7 @@ export abstract class BaseElement extends LitElement {
     }
   }
 
-  createRenderRoot() {
+  createRenderRoot(): Element | ShadowRoot {
     // should use a 'closed' shadow dom but must be open for testing!!! Need to figure this out
     return this.attachShadow({mode: 'open'});
   }

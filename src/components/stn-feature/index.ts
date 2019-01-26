@@ -1,7 +1,7 @@
 import { property, html } from "@polymer/lit-element";
-import { BaseElement } from "../../lib/base-element";
+import { Stone } from "../../lib/stone";
 
-export class FeatureElement extends BaseElement {
+export class FeatureElement extends Stone {
 
   @property()
   title='';
@@ -13,10 +13,10 @@ export class FeatureElement extends BaseElement {
   }
 
   protected render(): any {
-    console.log('rendering');
     return html`
       <div>
         <h2>${this.title}</h2>
+        <slot></slot>
       </div>
     `;
   }
