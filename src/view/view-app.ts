@@ -24,15 +24,19 @@ export class ViewApp extends Stone {
 
         </div>
     </div>
-            <stn-feature title="Modern JS/TS">
+            <stn-card title="Modern JS/TS">
                 <p>Code in Typescript and/or Javascript with all the latest features</p>
-            </stn-feature>
-            <stn-feature title="Lit-Element">
+            </stn-card>
+            <stn-card title="Lit-Element">
                 <p>Lightweight component model provided by the polymer project</p>
-            </stn-feature>
-            <stn-feature title="Lit-HTML">
+            </stn-card>
+            <stn-card title="Lit-HTML">
                 <p>Lightweight and fast template rendering provided by the polymer project</p>
-            </stn-feature>
+            </stn-card>
+            <stn-card title="Webpack">
+                <p>A webpack config ready for production so you won't have to fight 'the man' when it turns out that transpiling for the real world breaks your world</p>
+                <p>chunking and dynamic module loading ready to be used</p>
+            </stn-card>
 `
   }
 

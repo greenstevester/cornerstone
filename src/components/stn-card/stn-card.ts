@@ -1,11 +1,10 @@
 import { property, html } from "@polymer/lit-element";
 import { Stone } from "../../lib/stone";
 
-export class FeatureElement extends Stone {
+export class CardElement extends Stone {
 
   @property()
-  title='';
-
+  title = '';
 
   constructor() {
     super();
@@ -16,11 +15,11 @@ export class FeatureElement extends Stone {
     return html`
       <div>
         <h2>${this.title}</h2>
-        <slot></slot>
+        <stn-card-body>
+            <slot></slot>
+        </stn-card-body>
       </div>
     `;
   }
 
 }
-
-FeatureElement.tagname = 'stn-feature';

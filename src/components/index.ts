@@ -1,8 +1,8 @@
 export const DynamicComponents = {
-  load: {
-    feature: async function () {
-      await import(/* webpackChunkName: "feature" */'./stn-feature').then((scope) => {
-        scope.FeatureElement.define()
+  await: {
+    card: async function () {
+      await import(/* webpackChunkName: "stn-card" */'./stn-card').then((scope) => {
+        scope.define()
       });
     }
   }

@@ -1,9 +1,11 @@
+import { DynamicComponents } from "../components";
 import { ViewApp } from "./view-app";
 
 export const Views = {
   load: {
     app: function () {
-      ViewApp.define()
+      DynamicComponents.await.card();
+      ViewApp.define('stn-app')
     }
   }
 };
