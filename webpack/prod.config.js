@@ -1,14 +1,14 @@
 const path = require('path');
-const ClosurePlugin = require('closure-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
+
 
 module.exports = function configure(env, arg, wdir, config) {
   wdir = `${wdir}/`;
 
   config.entry = [
-    `${wdir}src/index-with-worker.ts`,
+    `${wdir}src/index.ts`,
     `${wdir}src/index.scss`];
 
   config.output = {
@@ -39,11 +39,13 @@ module.exports = function configure(env, arg, wdir, config) {
   config.optimization = {
     'concatenateModules': false,
     minimizer: [
-      new ClosurePlugin({
-                          // mode: 'AGGRESSIVE_BUNDLE',
-                          mode: 'STANDARD',
-                        }),
-      new OptimizeCSSAssetsPlugin({}),
+      new TerserPlugin({
+                         parallel: true,
+                         sourceMap: true,
+                         terserOptions: {
+                           ecma: 6,
+                         },
+                       }),
     ],
   };
 

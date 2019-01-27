@@ -1,5 +1,5 @@
-import InitDynamicModule from "./dynamic-module";
-import InitWorker from "./worker"
+// import InitDynamicModule from "./dynamic-module";
+// import InitWorker from "./worker"
 
-InitDynamicModule();
+// InitDynamicModule();
 // InitWorker();

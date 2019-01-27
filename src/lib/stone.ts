@@ -12,15 +12,15 @@ export abstract class Stone extends LitElement {
   constructor() {
     super();
     this.Id = id++;
-    this.Class = new.target.name;
-    if (new.target === Stone) {
+    this.Class = this.constructor.name;
+    if (this.Class === 'Stone') {
       throw new TypeError('Cannot construct Stone instances directly');
     }
   }
 
 
   hashcode() {
-    return this.Class + ':' + this.Id;
+    // return this.Class + ':' + this.Id;
   }
 
   connectedCallback() {

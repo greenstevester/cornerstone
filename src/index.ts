@@ -1,7 +1,3 @@
-// import InitDynamicModule from "./load-module";
-//
-// InitDynamicModule();
-
 import { DynamicComponents } from "./components";
 import { Views } from "./view";
 
