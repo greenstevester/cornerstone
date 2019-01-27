@@ -1,5 +1,8 @@
-
 module.exports = (env, argv) => {
+
+  if (argv.demo) {
+    return require('./webpack/demo.config')(env, argv, __dirname);
+  }
 
   let config = require('./webpack/base.config')(env, argv, __dirname);
 

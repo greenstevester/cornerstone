@@ -1,4 +1,4 @@
-import { Stone } from "../lib/stone";
+import { Stone } from "../../lib/stone";
 import { html } from "@polymer/lit-element";
 
 export class ViewApp extends Stone {

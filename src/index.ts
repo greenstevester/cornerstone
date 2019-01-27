@@ -1,3 +1,3 @@
-import { Views } from "./view";
+import { Views } from "./app/view";
 
 Views.load.app();
