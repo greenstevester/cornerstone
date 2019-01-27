@@ -2,8 +2,6 @@ import { LitElement } from '@polymer/lit-element/lit-element.js';
 
 let id = 0;
 
-// if (!window['mkdn']) window['mkdn'] = {dev: false};
-
 export abstract class Stone extends LitElement {
   private readonly Id: number;
   private readonly Class: string;
@@ -20,11 +18,11 @@ export abstract class Stone extends LitElement {
 
 
   hashcode() {
-    // return this.Class + ':' + this.Id;
+    return this.Class + ':' + this.Id;
   }
 
   connectedCallback() {
-    // console.debug(`connected: ${this.Class}`);
+    console.debug(`connected: ${this.hashcode()}`);
   }
 
   static define(name?: string) {
