@@ -3,6 +3,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
 
 module.exports = function configure(env, argv, wdir) {
   wdir = `${wdir}/`;
@@ -80,6 +82,21 @@ module.exports = function configure(env, argv, wdir) {
                               {from: `${wdir}src/images`, to: 'images'},
                             ]),
     ],
-    optimization: {},
+    optimization : {
+      'concatenateModules': false,
+      minimizer: [
+        new TerserPlugin({
+                           parallel: true,
+                           sourceMap: true,
+                           terserOptions: {
+                             ecma: 6,
+                           },
+                         }),
+      ],
+      splitChunks: {
+        // include all types of chunks
+        chunks: 'all'
+      }
+    }
   };
 };

@@ -1,8 +1,6 @@
 const path = require('path');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin')
-
 
 module.exports = function configure(env, arg, wdir, config) {
   wdir = `${wdir}/`;
@@ -36,18 +34,7 @@ module.exports = function configure(env, arg, wdir, config) {
                                    }),
   );
 
-  config.optimization = {
-    'concatenateModules': false,
-    minimizer: [
-      new TerserPlugin({
-                         parallel: true,
-                         sourceMap: true,
-                         terserOptions: {
-                           ecma: 6,
-                         },
-                       }),
-    ],
-  };
+
 
   return config;
 };
