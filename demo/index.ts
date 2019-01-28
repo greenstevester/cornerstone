@@ -1,11 +1,25 @@
 import { DynamicComponents } from "../src/app/components";
-import { start } from "./stn-shrm";
+import { Features, demo } from "./app/stn-shrm";
+import { html } from "@polymer/lit-element";
+import { TemplateResult } from "lit-html";
 
-//init app components
+//init app components to be demo'ed
 DynamicComponents.await.all();
 
+//create demo content
+let features = new Features();
+features.add(
+  'stn-card',
+  (): TemplateResult => {
+    return html`
+              <stn-card title="the tile">
+                 this is content 
+              </stn-card>
+              `
+  });
+
 //start demo app
-start();
+demo(features);
 
 
 
