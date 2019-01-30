@@ -1,6 +1,7 @@
 module.exports = (env, argv) => {
 
   if (argv.demo) {
+    console.log("DEMO");
     return require('./webpack/demo.config')(env, argv, __dirname);
   }
 

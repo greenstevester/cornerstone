@@ -1,7 +1,9 @@
+import { TemplateResult } from "lit-html";
 import { DynamicComponents } from "../src/app/components";
 import { Features, demo } from "./app/stn-shrm";
 import { html } from "@polymer/lit-element";
-import { TemplateResult } from "lit-html";
+
+// import 'index.css';
 
 //init app components to be demo'ed
 DynamicComponents.await.all();

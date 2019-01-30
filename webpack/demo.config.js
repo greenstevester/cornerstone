@@ -12,7 +12,7 @@ module.exports = function configure(env, argv, wdir) {
     devtool: 'source-map',
     entry: [
       `${wdir}demo/index.ts`,
-      // `${wdir}demo/index.scss`
+      `${wdir}demo/index.css`
     ],
     output: {
       path: path.join(wdir, 'dist/demo'),
@@ -36,17 +36,10 @@ module.exports = function configure(env, argv, wdir) {
           include: wdir,
           loader: 'ts-loader',
         },
-        // {
-        //   test: /\.scss$/,
-        //   use: [
-        //     {loader: MiniCssExtractPlugin.loader},
-        //     {
-        //       loader: 'css-loader',
-        //       options: {importLoaders: 2},
-        //     },
-        //     {loader: 'postcss-loader'},
-        //   ],
-        // },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
+        },
         {
           test: /\.(gif|png|jpe?g|svg)$/i,
           use: [
