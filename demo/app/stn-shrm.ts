@@ -3,21 +3,24 @@ import { ShowroomExample } from "../components/stn-shrm-example";
 import { Menu } from "../components/stn-shrm-menu";
 import { html } from "@polymer/lit-element";
 import { render } from "lit-html";
+import { Showroom } from "../components/stn-shrm-showroom";
 
 export function demo(features: Features) {
 
   //init demo service
   Menu.define('stn-demo-menu');
+  Showroom.define('stn-showroom');
   ShowroomExample.define('stn-demo-example');
   const service = new DemoService(features);
 
   //init app template
-  const showroomApp = (service: DemoService) => html`
-        <h1>Demo</h1>
-        <stn-demo-menu .service="${service}"> </stn-demo-menu>
-        <stn-demo-example .service="${service}"> </stn-demo-example>
-        <stn-demo-events .service="${service}"></stn-demo-events>
-    `;
+
+  const showroomApp = (service: DemoService) => {
+    return html`
+          <h1>Demo</h1>
+          <stn-showroom .service=${service} class="container"></stn-showroom> 
+      `;
+  };
 
   //start app
   render(showroomApp(service), document.body);

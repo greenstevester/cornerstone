@@ -1,63 +1,8 @@
 @import "../node_modules/milligram/dist/milligram.css";
-/*
 
 body {
   background: #faffc9;
   font-family: sans-serif;
-  padding-top: 5rem;
+  /*padding-top: 5rem;*/
 }
 
-h1, h3, h5 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.app-section {
-  width: 100%;
-  margin: 0 auto;
-  border-top: black solid 1rem;
-  padding-top: 2rem;
-}
-
-.attribution {
-  width: 1rem;
-  vertical-align: middle;
-}
-
-.logo {
-  width: 100%;
-
-}
-
-.logo-section {
-  width: 400px;
-  margin: 0 auto;
-  border: black solid 1rem;
-}
-
-.main-section {
-  width: 400px;
-  margin: 0 auto;
-}
-
-.feature {
-
-  background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1yZWxvYWQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTIwIDEyMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8cGF0aCBkPSJNNjAsOTUuNWMtMTkuNTc1LDAtMzUuNS0xNS45MjYtMzUuNS0zNS41YzAtMTkuNTc1LDE1LjkyNS0zNS41LDM1LjUtMzUuNWMxMy42MiwwLDI1LjQ2Nyw3LjcxNCwzMS40MTgsMTloMjIuNjI3DQoJCUMxMDYuOTg0LDIwLjM0Nyw4NS40NjIsMy41LDYwLDMuNUMyOC43OTYsMy41LDMuNSwyOC43OTYsMy41LDYwYzAsMzEuMjAzLDI1LjI5Niw1Ni41LDU2LjUsNTYuNQ0KCQljMTYuMjY0LDAsMzAuOTExLTYuODgyLDQxLjIyMS0xNy44OEw4NS44ODksODQuMjU1Qzc5LjQwNiw5MS4xNjgsNzAuMjAxLDk1LjUsNjAsOTUuNXoiLz4NCjwvZz4NCjxsaW5lIGZpbGw9Im5vbmUiIHgxPSIxMjAiIHkxPSIwIiB4Mj0iMTIwIiB5Mj0iNDUuMzM2Ii8+DQo8bGluZSBmaWxsPSJub25lIiB4MT0iOTEuNDE4IiB5MT0iNDMuNSIgeDI9IjExNC4wNDUiIHkyPSI0My41Ii8+DQo8cG9seWdvbiBwb2ludHM9IjEyMCwyMS44MzIgMTE5Ljk5Miw2OC44NDIgNzQuODI3LDU1LjgxMSAiLz4NCjwvc3ZnPg==');
-  background-size: 3rem;
-  background-position: top;
-
-
-  font-size:18px;
-  text-align:left;
-  height:5rem;
-  display: table;
-  width: 100%;
-}
-
-.feature-label {
-  vertical-align:bottom;
-  text-align: center;
-  display: table-cell;
-}
-*/
