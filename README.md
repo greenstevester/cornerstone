@@ -8,6 +8,7 @@ If you are wondering 'Why one more seed project'? -> [Why?](#why)
 
 * Typescript - The tsconfig.json includes support for decorators, dynamic loading, and ESNext
 * lit-html and lit-element - Polymer core libraries to build true web components
+* a few optional base code
 * Dynamic modules - Make chunking and dynamic loading part of your design
 * Feature Demo Environemnt - Isolate features for the sake of documenting, testing, and showcasing. Includes an easy to bootstrap mechanism
 * Jest - for unit testing
