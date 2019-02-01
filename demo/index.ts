@@ -1,41 +1,42 @@
+import { html } from "@polymer/lit-element";
 import { TemplateResult } from "lit-html";
 import { DynamicComponents } from "../src/app/components";
-import { Features, demo } from "./app/stn-shrm";
-import { html } from "@polymer/lit-element";
+import { startDemo, Features } from "./app/stn-shrm";
 
-// import 'index.css';
+//start the demo with examples
+startDemo(initExamples());
 
-//init app components to be demo'ed
-DynamicComponents.await.all();
+//create examples
+function initExamples() {
+  DynamicComponents.await.all();
 
-//create demo content
-let features = new Features();
-features.add('stn-card',
-  (): TemplateResult => {
-    return html`
+  let features = new Features("Cornerstone Feature Demo");
+
+  features.add('stn-card',
+    (): TemplateResult => {
+      return html`
 <stn-card title="the tile">
    this is content 
 </stn-card>
               `
-  });
+    });
 
-features.add('stn-hero',
-  (): TemplateResult => {
-    return html``
-  });
+  features.add('stn-hero',
+    (): TemplateResult => {
+      return html``
+    });
 
-features.add('stn-header',
-  (): TemplateResult => {
-    return html``
-  });
+  features.add('stn-header',
+    (): TemplateResult => {
+      return html``
+    });
 
-features.add('stn-footer',
-  (): TemplateResult => {
-    return html``
-  });
-
-//start demo app
-demo(features);
+  features.add('stn-footer',
+    (): TemplateResult => {
+      return html``
+    });
+  return features;
+}
 
 
 

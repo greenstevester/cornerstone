@@ -1,7 +1,7 @@
 import { Features } from "./stn-shrm";
 import { html, TemplateResult } from "lit-html";
 
-export class DemoService {
+export class StnShrmService {
   private features: Features;
   private chosen = 'stn-card';
   private callback?: (name: string) => void;
@@ -29,5 +29,9 @@ export class DemoService {
   registerSelectionWatcher(callback: (name:string) => void) {
     this.callback = callback;
 
+  }
+
+  getTitle() {
+    return this.features.getTitle()
   }
 }

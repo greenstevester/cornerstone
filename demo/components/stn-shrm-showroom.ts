@@ -1,12 +1,12 @@
 import { property } from "@polymer/lit-element";
 import { html, TemplateResult } from "lit-html";
 import { Stone } from "../../src/lib/stone";
-import { DemoService } from "../app/demo.service";
+import { StnShrmService } from "../app/stn-shrm.service";
 
 export class Showroom extends Stone {
 
   @property({attribute: false})
-  service!: DemoService;
+  service!: StnShrmService;
 
   @property({attribute: false})
   private selectedExample: string = 'stn-card';

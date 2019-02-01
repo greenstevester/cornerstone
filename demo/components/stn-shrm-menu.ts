@@ -1,11 +1,11 @@
 import { customElement, property, html } from "@polymer/lit-element";
 import { Stone } from "../../src/lib/stone";
-import { DemoService } from "../app/demo.service";
+import { StnShrmService } from "../app/stn-shrm.service";
 
 export class Menu extends Stone {
 
   @property({attribute: false})
-  service!: DemoService;
+  service!: StnShrmService;
 
   render() {
     const items = [];
@@ -36,6 +36,7 @@ export class Menu extends Stone {
         background: none;
         border: none;
         font-size: 2rem;
+        color: #606c76 ;
     }
 
     button:hover {

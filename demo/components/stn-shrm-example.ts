@@ -1,11 +1,11 @@
 import { html, property } from "@polymer/lit-element";
 import { Stone } from "../../src/lib/stone";
-import { DemoService } from "../app/demo.service";
+import { StnShrmService } from "../app/stn-shrm.service";
 
 export class ShowroomExample extends Stone {
 
   @property({attribute: false})
-  service!: DemoService;
+  service!: StnShrmService;
   @property({attribute: false})
   name!: string;
 
@@ -18,7 +18,6 @@ export class ShowroomExample extends Stone {
   render() {
     let template = this.service.getExampleTemplate(this.name);
     if (template.getHTML()) {
-
       return html`
     ${this.renderStyles()}
     <h2><pre>${this.name}</pre></h2>
