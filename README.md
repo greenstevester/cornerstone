@@ -14,6 +14,7 @@ If you are wondering 'Why one more seed project'? -> [Why?](#why)
 * TestCafe - for integration and end-to-end testing
 * Milligram - a tiny css library (<2k) that you can enhance or replace when/if you find you need something more.
 * Non-trivial example code showing all of the key features at work
+* Maps - Maps work with minified production code so that we can develop all the time with code we will use in prod
 
 ## Usage
 ### Setup
@@ -77,6 +78,7 @@ Here are some anti-patterns I think I have identified:
 1. __uber special packager build__ - Ideally our projects should not be bound to any packaging process. While that seems almost impossible at the moment at least we should not be stuck with one framework's build prescription. If the framework corners you then we have to ask why that is!
 1. __fight the builder__ - Most default build systems and seed projects do not build production-ready code. So we spend too long building in dev mode. So when we find after months of dev-mode work that code is too fat or loads too slowly we start having to rethink the whole way we build. Or worst due to lack of time to fix issues we go to production with un-minified code because we just don't have time to fix the issues.
 1. __I will write tests later__ - I will not defend TDD here... that's a whole other topic. But too often developers address the addition of tests too late... usually just before completing their work or even worse delay it until the maintenance becomes too costly.
+1. __build-test-rebuild__ - It is too easy to end-up with a different way to build for development, testing, and release. It means that ultimately we do not deploy what we tested.
 
 ### So what should we do about this?
 A few things became clear to me and I am trying to capture them in this seed project.
