@@ -1,10 +1,10 @@
-import { Features } from "./stn-shrm";
 import { html, TemplateResult } from "lit-html";
+import { Features } from "./stn-shrm";
 
 export class StnShrmService {
   private features: Features;
-  private chosen = 'stn-card';
-  private callback?: (name: string) => void;
+  private chosen: string | null = 'stn-card';
+  private callback?: (name: string | null) => void;
 
   constructor(features: Features) {
     this.features = features;
@@ -21,17 +21,25 @@ export class StnShrmService {
     return html``
   }
 
-  setSelected(name: string) {
+  setSelected(name: string | null) {
     this.chosen = name;
     if(this.callback) this.callback(name)
   }
 
-  registerSelectionWatcher(callback: (name:string) => void) {
+  registerSelectionWatcher(callback: (name: string | null) => void) {
     this.callback = callback;
 
   }
 
   getTitle() {
     return this.features.getTitle()
+  }
+
+  getWelcome() {
+    return this.features.getWelcome()
+  }
+
+  getWelcomeContent() {
+    return this.features.getWelcomeContent()
   }
 }

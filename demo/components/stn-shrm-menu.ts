@@ -1,4 +1,4 @@
-import { customElement, property, html } from "@polymer/lit-element";
+import { html, property } from "@polymer/lit-element";
 import { Stone } from "../../src/lib/stone";
 import { StnShrmService } from "../app/stn-shrm.service";
 
@@ -15,8 +15,10 @@ export class Menu extends Stone {
     }
 
     return html`
-        ${this.renderStyles()}
+      ${this.renderStyles()}     
+      <h2>${this.service.getTitle()}</h2>
       <ul>
+        <li><h3><button @click="${() => this.choose(null)}">home</a></h3></li>
         ${items}
       </ul>
     `
@@ -36,22 +38,18 @@ export class Menu extends Stone {
         background: none;
         border: none;
         font-size: 2rem;
-        color: #606c76 ;
+        color: var(--white) ;
     }
 
     button:hover {
-        color: darkgreen;
-
+        color: var(--color-complement-4);
     }
     
-    ul{
-    border-right: dimgray solid .1rem;
-    }
 </style>
 `
   }
 
-  private choose(name: string) {
+  private choose(name: string | null) {
     this.service.setSelected(name)
   }
 

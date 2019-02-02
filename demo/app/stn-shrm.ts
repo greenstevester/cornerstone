@@ -16,10 +16,7 @@ export function startDemo(features: Features) {
   //init app template
 
   const showroomApp = (service: StnShrmService) => {
-    return html`
-          <h1>${service.getTitle()}</h1>
-          <stn-showroom .service=${service} class="container"></stn-showroom> 
-      `;
+    return html`<stn-showroom .service=${service} ></stn-showroom>`;
   };
 
   //start app
@@ -27,11 +24,14 @@ export function startDemo(features: Features) {
 }
 
 export class Features {
+
+  private features: Map<string, Function> = new Map<string, Function>();
+  private welcome: string = '';
+  private welcomeContent: () => void = () => {
+  };
+
   constructor(private title: string) {
-
   }
-
-  features: Map<string, Function> = new Map<string, Function>();
 
   add(name: string, example: () => void) {
     this.features.set(name, example)
@@ -53,5 +53,19 @@ export class Features {
     } else {
       throw Error(`no function found for: ${name}`)
     }
+  }
+
+  setIntro(welcomeMessage: string, content: () => void) {
+    this.welcome = welcomeMessage;
+    this.welcomeContent = content;
+
+  }
+
+  getWelcome() {
+    return this.welcome;
+  }
+
+  getWelcomeContent() {
+    return this.welcomeContent()
   }
 }

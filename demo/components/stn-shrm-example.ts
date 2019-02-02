@@ -16,22 +16,32 @@ export class ShowroomExample extends Stone {
   }
 
   render() {
-    let template = this.service.getExampleTemplate(this.name);
-    if (template.getHTML()) {
-      return html`
-    ${this.renderStyles()}
-    <h2><pre>${this.name}</pre></h2>
-    <div class="example">
-        ${template}
-    </div>
-    <pre class="code">${template.getHTML()}</pre>
- `
+    if (this.name) {
+      let template = this.service.getExampleTemplate(this.name);
+      if (template.getHTML()) {
+        return html`
+          ${this.renderStyles()}
+          <h2><pre>${this.name}</pre></h2>
+          <div class="example">
+              ${template}
+          </div>
+          <pre class="code">${template.getHTML()}</pre>
+          `
+      } else {
+        return html`
+          ${this.renderStyles()}
+          <h2><pre>${this.name}</pre></h2>
+          ${template}
+          `
+      }
     } else {
       return html`
-    ${this.renderStyles()}
-    <h2><pre>${this.name}</pre></h2>
-    ${template}
-   `
+        ${this.renderStyles()}
+        <div class="welcome">
+            <h1>${this.service.getWelcome()}</h1>
+            ${this.service.getWelcomeContent()}
+        </div>
+      `
     }
   }
 
@@ -58,6 +68,10 @@ export class ShowroomExample extends Stone {
         margin-bottom: 2rem
         margin-top: 2rem
 
+    }
+    
+    .welcome {
+        margin: 1rem;
     }
 </style>
 `
