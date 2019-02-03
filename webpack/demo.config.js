@@ -1,8 +1,8 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function configure(env, argv, wdir) {
@@ -77,7 +77,7 @@ module.exports = function configure(env, argv, wdir) {
       contentBase: `${wdir}dist/demo`,
     },
     plugins: [
-      new CleanWebpackPlugin([`${wdir}dist/`], {allowExternal: true}),
+      new CleanWebpackPlugin([`${wdir}dist/demo`], {allowExternal: true}),
       new HtmlWebpackPlugin({template: `${wdir}demo/index.html`, title: 'Demo'}),
       /*new CopyWebpackPlugin([
        {from: `${wdir}src/images`, to: 'images'},

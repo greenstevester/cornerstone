@@ -1,5 +1,5 @@
 const path = require('path');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = function configure(env, arg, wdir, config) {
@@ -10,7 +10,7 @@ module.exports = function configure(env, arg, wdir, config) {
     `${wdir}src/index.scss`];
 
   config.output = {
-    path: path.join(wdir, 'dist'),
+    path: path.join(wdir, 'dist/app'),
     filename: '[name].[hash].js',
     chunkFilename: '[name].[chunkhash].js',
   };

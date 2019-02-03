@@ -8,7 +8,7 @@
         "lint": "tslint --project .",
         "build": "webpack --mode production",
         "build.watch": "webpack --watch --mode production",
-        "build.demo": "webpack --watch --mode development --demo",
+        "build.demo": "webpack --watch --mode production --demo",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
     },
@@ -19,6 +19,7 @@
     "author": "Florian Hehlen",
     "license": "MIT",
     "devDependencies": {
+        "@types/page": "^1.8.0",
         "autoprefixer": "^9.4.4",
         "clean-webpack-plugin": "^1.0.0",
         "copy-webpack-plugin": "^4.6.0",
@@ -43,9 +44,13 @@
     "dependencies": {
         "@polymer/lit-element": "^0.6.5",
         "@types/es6-promise": "^3.3.0",
-        "lit-html": "latest",
+        "lit-html": "^1.0.0-rc.2",
         "milligram": "^1.3.0",
+        "page": "^1.11.4",
         "style-loader": "^0.23.1",
         "webpack-deep-scope-plugin": "^1.6.0"
+    },
+    "resolutions": {
+        "terser": "3.14.1"
     }
 }

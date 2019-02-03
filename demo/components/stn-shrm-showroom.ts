@@ -24,7 +24,7 @@ export class Showroom extends Stone {
             height: 100%;
             width: 18%;
             overflow: auto;
-            background: var(--color-secondary-1-0);
+            background: var(--color-complement-4);
         }
     
         #content {

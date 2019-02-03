@@ -77,7 +77,7 @@ module.exports = function configure(env, argv, wdir) {
       contentBase: `${wdir}dist`,
     },
     plugins: [
-      new CleanWebpackPlugin([`${wdir}dist`],{allowExternal: true}),
+      new CleanWebpackPlugin([`${wdir}dist/app`], {allowExternal: true}),
       new HtmlWebpackPlugin({template: `${wdir}src/index.html`, title: 'Progressive Web Application'}),
       new CopyWebpackPlugin([
                               {from: `${wdir}src/images`, to: 'images'},
@@ -92,7 +92,7 @@ module.exports = function configure(env, argv, wdir) {
                            sourceMap: true,
                            terserOptions: {
                              ecma: 6,
-                           },
+                           }
                          }),
       ],
       splitChunks: {

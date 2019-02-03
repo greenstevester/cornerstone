@@ -42,7 +42,7 @@ export class Menu extends Stone {
     }
 
     button:hover {
-        color: var(--color-complement-4);
+        color: var(--color-secondary-1-2);
     }
     
 </style>

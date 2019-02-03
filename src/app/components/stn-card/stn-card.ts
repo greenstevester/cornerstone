@@ -13,6 +13,11 @@ export class CardElement extends Stone {
 
   protected render(): any {
     return html`
+      <style>
+      h2 {
+        color: var(--color-complement-4);
+      }
+      </style>
       <div>
         <h2>${this.title}</h2>
         <stn-card-body>
