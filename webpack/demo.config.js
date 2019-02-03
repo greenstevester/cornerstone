@@ -78,7 +78,7 @@ module.exports = function configure(env, argv, wdir) {
     },
     plugins: [
       new CleanWebpackPlugin([`${wdir}dist/demo`], {allowExternal: true}),
-      new HtmlWebpackPlugin({template: `${wdir}demo/index.html`, title: 'Demo'}),
+      new HtmlWebpackPlugin({template: `${wdir}src/lib/showroom/index.html`, title: 'Demo'}),
       /*new CopyWebpackPlugin([
        {from: `${wdir}src/images`, to: 'images'},
        ]),*/

@@ -1,5 +1,5 @@
 import { html, property } from "@polymer/lit-element";
-import { Stone } from "../../src/lib/stone";
+import { Stone } from "../../stone";
 import { StnShrmService } from "../app/stn-shrm.service";
 
 export class ShowroomExample extends Stone {
@@ -8,19 +8,22 @@ export class ShowroomExample extends Stone {
   service!: StnShrmService;
   @property({attribute: false})
   name!: string | null;
+  @property({attribute: false, type: Object})
+  exampleProps: Map<string, any> = new Map();
 
   connectedCallback() {
     this.service.registerSelectionWatcher((name) => {
-      this.name = name
+      this.name = name;
+      if (name) this.exampleProps = this.service.getProperties(name)(this);
     })
   }
 
   render() {
     if (this.name) {
-      let template = this.service.getExampleTemplate(this.name);
+      let template = this.service.getExampleTemplate(this.name, this);
       if (template.getHTML()) {
         return html`
-          ${this.renderStyles()}
+          ${ShowroomExample.renderStyles()}
           <h2><pre>${this.name}</pre></h2>
           <div class="example">
               ${template}
@@ -29,14 +32,14 @@ export class ShowroomExample extends Stone {
           `
       } else {
         return html`
-          ${this.renderStyles()}
+          ${ShowroomExample.renderStyles()}
           <h2><pre>${this.name}</pre></h2>
           ${template}
           `
       }
     } else {
       return html`
-        ${this.renderStyles()}
+        ${ShowroomExample.renderStyles()}
         <div class="welcome">
             <h1>${this.service.getWelcome()}</h1>
             ${this.service.getWelcomeContent()}
@@ -45,7 +48,7 @@ export class ShowroomExample extends Stone {
     }
   }
 
-  renderStyles() {
+  static renderStyles() {
     return html`<style>
     :host[hidden] {
         display: none;
@@ -76,4 +79,16 @@ export class ShowroomExample extends Stone {
 </style>
 `
   }
+
+  set(key: string, val: any) {
+    let props = this.exampleProps;
+    const newProps = new Map(props);
+    newProps.set(key, val);
+    this.exampleProps = newProps;
+  }
+
+  get(key: string) {
+    return this.exampleProps.get(key);
+  }
+
 }

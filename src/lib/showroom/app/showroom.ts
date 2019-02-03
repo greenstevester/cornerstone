@@ -1,5 +1,5 @@
 import { html } from "@polymer/lit-element";
-import { render } from "lit-html";
+import { render, TemplateResult } from "lit-html";
 import { ShowroomExample } from "../components/stn-shrm-example";
 import { Menu } from "../components/stn-shrm-menu";
 import { Showroom } from "../components/stn-shrm-showroom";
@@ -25,16 +25,23 @@ export function startDemo(features: Features) {
 
 export class Features {
 
-  private features: Map<string, Function> = new Map<string, Function>();
+  private features: Map<string, (element: ShowroomExample) => TemplateResult> = new Map();
+  private properties: Map<string, (element: ShowroomExample) => Map<string, any>> = new Map();
   private welcome: string = '';
   private welcomeContent: () => void = () => {
   };
 
   constructor(private title: string) {
+    document.title = title;
   }
 
-  add(name: string, example: () => void) {
-    this.features.set(name, example)
+  add(name: string,
+      example: (element: ShowroomExample) => TemplateResult,
+      properties?: (element: ShowroomExample) => Map<string, any>) {
+
+    this.features.set(name, example);
+    if (properties) this.properties.set(name, properties);
+    return this;
   }
 
   getTitle() {
@@ -67,5 +74,14 @@ export class Features {
 
   getWelcomeContent() {
     return this.welcomeContent()
+  }
+
+  getProperties(name: string): Function {
+    let map = this.properties.get(name);
+    if (map) {
+      return map;
+    } else {
+      return () => new Map()
+    }
   }
 }

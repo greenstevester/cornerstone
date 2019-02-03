@@ -1,6 +1,7 @@
 import { html, property } from "@polymer/lit-element";
-import { Stone } from "../../src/lib/stone";
+import { Stone } from "../../stone";
 import { StnShrmService } from "../app/stn-shrm.service";
+
 
 export class Menu extends Stone {
 
@@ -15,7 +16,7 @@ export class Menu extends Stone {
     }
 
     return html`
-      ${this.renderStyles()}     
+      ${Menu.renderStyles()}
       <h2>${this.service.getTitle()}</h2>
       <ul>
         <li><h3><button @click="${() => this.choose(null)}">home</a></h3></li>
@@ -24,7 +25,7 @@ export class Menu extends Stone {
     `
   }
 
-  renderStyles() {
+  static renderStyles() {
     return html`<style>
     :host[hidden] {
         display: none;

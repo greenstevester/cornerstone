@@ -1,6 +1,6 @@
 import { property } from "@polymer/lit-element";
 import { html, TemplateResult } from "lit-html";
-import { Stone } from "../../src/lib/stone";
+import { Stone } from "../../stone";
 import { StnShrmService } from "../app/stn-shrm.service";
 
 export class Showroom extends Stone {

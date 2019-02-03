@@ -1,5 +1,6 @@
 import { html, TemplateResult } from "lit-html";
-import { Features } from "./stn-shrm";
+import { ShowroomExample } from "../components/stn-shrm-example";
+import { Features } from "./showroom";
 
 export class StnShrmService {
   private features: Features;
@@ -14,9 +15,9 @@ export class StnShrmService {
     return this.features.getAll()
   }
 
-  getExampleTemplate(name: string): TemplateResult {
+  getExampleTemplate(name: string, element: ShowroomExample): TemplateResult {
     if (name) {
-      return this.features.get(name)()
+      return this.features.get(name)(element)
     }
     return html``
   }
@@ -41,5 +42,9 @@ export class StnShrmService {
 
   getWelcomeContent() {
     return this.features.getWelcomeContent()
+  }
+
+  getProperties(name: string) {
+    return this.features.getProperties(name)
   }
 }
