@@ -1,7 +1,5 @@
 # Cornerstone
 
-![logo][src/images/noun_building_1801.svg]
-
 A webapack-based seed project that's a good foundation for modern JS/TS web applications. An attempt to make web development productivd without the lock-in of Big Frameworks!
 
 If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md)
@@ -89,11 +87,11 @@ That said
 
 ## Todo
 
-* find a decent routing library: complete, no overkill, reasonable size, ES6
-* find a decent XHR library... if it's really needed.
-* Make sure I can add angular, react, vue, polymer, web components without having to change the core
-* finish WPA support
-* add unit and e2e testing support
-* clean-up sample code (apply tslint fixes)
-* problem with uglify and stacktraces in dev mode.
-* setup webpack so that components get built only once so they can be shared between the app and the demo.
+- [ ] find a decent routing library: complete, no overkill, reasonable size, ES6
+- [ ] find a decent XHR library... if it's really needed.
+- [ ] Make sure I can add angular, react, vue, polymer, web components without having to change the core
+- [ ] finish WPA support
+- [ ] add unit and e2e testing support
+- [ ] clean-up sample code (apply tslint fixes)
+- [ ] problem with uglify and stacktraces in dev mode.
+- [ ] setup webpack so that components get built only once so they can be shared between the app and the demo.
