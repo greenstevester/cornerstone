@@ -9,18 +9,30 @@ If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md
 ## Guides
 * [Creating a demo](documentation/DEMO.md)
 
-## Main Features
+## Foundation Features
 
 * Typescript - The tsconfig.json includes support for decorators, dynamic loading, and ESNext
+* webpack
+  * Dynamic modules - Make chunking and dynamic loading part of your design
+  * chunking
+  * Maps - Maps work with minified production code so that we can develop all the time with code we will use in prod
+
+## Removable Features
+Most of the features in this seed project are optional. You should also be able to easily add dependencies that are compatible with ES6 and TypeScript.
+
+That said
+
 * lit-html and lit-element - Polymer core libraries to build true web components
-* a few optional base code
-* Dynamic modules - Make chunking and dynamic loading part of your design
+    * Demo setup depends on these two libraries
+* Some custom code
+  * to extend lit-element
+  * to provide a simple router
 * Feature Demo Environemnt - Isolate features for the sake of documenting, testing, and showcasing. Includes an easy to bootstrap mechanism
 * Jest - for unit testing
 * TestCafe - for integration and end-to-end testing
 * Milligram - a tiny css library (<2k) that you can enhance or replace when/if you find you need something more.
-* Non-trivial example code showing all of the key features at work
-* Maps - Maps work with minified production code so that we can develop all the time with code we will use in prod
+* Non-trivial example code showing all of the key features
+
 
 ## Usage
 ### Setup
@@ -48,21 +60,26 @@ If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md
     yarn lint
     ```
 * _building and watching_ - There are variations here for different purposes... mostly obvious
+    build the app and the demo
     ```
-    yarn build.dev
+    yarn build
     ```
+    build and watch the app:
     ```
-    yarn build.prod
+    yarn build.watch
     ```
-    Run the demo site for component-level integration tests
+    build and watch the demo:
     ```
     yarn build.demo
     ```
-    You then need to run `http-serve dist` to serve the site.
+    You then need to run `http-serve dist/demo` to serve the demo.
 
-    Why not use the webpack server? Because we should test releaseable code and avoid the build-test-rebuild anti-pattern
+    Why not use the webpack server? Because we should test releasable code and avoid the build-test-rebuild anti-pattern
 
 ## Reference
+* https://www.typescriptlang.org/ - TypeScript
+* https://lit-html.polymer-project.org/ - lit-html
+* https://lit-element.polymer-project.org/ - lit-element
 * https://webpack.js.org - check `package.json` for names of all plugins and loaders used
 * https://www.favicon-generator.org/ to generate the favicon set
 * OG meta-tags http://ogp.me/
@@ -72,7 +89,10 @@ If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md
 
 ## Todo
 
+* find a decent routing library: complete, no overkill, reasonable size, ES6
+* find a decent XHR library... if it's really needed.
 * Make sure I can add angular, react, vue, polymer, web components without having to change the core
 * finish WPA support
 * add unit and e2e testing support
 * clean-up sample code (apply tslint fixes)
+* problem with uglify and stacktraces in dev mode.
