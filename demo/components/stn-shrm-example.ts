@@ -7,7 +7,7 @@ export class ShowroomExample extends Stone {
   @property({attribute: false})
   service!: StnShrmService;
   @property({attribute: false})
-  name!: string;
+  name!: string | null;
 
   connectedCallback() {
     this.service.registerSelectionWatcher((name) => {

@@ -6,8 +6,8 @@
     "scripts": {
         "test": "test",
         "lint": "tslint --project .",
-        "build.dev": "webpack --watch --mode development",
-        "build.prod": "webpack --watch --mode production",
+        "build": "webpack --mode production",
+        "build.watch": "webpack --watch --mode production",
         "build.demo": "webpack --watch --mode development --demo",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
@@ -41,10 +41,11 @@
         "workbox-webpack-plugin": "^3.6.3"
     },
     "dependencies": {
-        "@polymer/lit-element"          : "^0.6.5",
-        "@types/es6-promise"            : "^3.3.0",
-        "milligram"                     : "^1.3.0",
-        "style-loader"                  : "^0.23.1",
-        "lit-html"                      : "latest"
+        "@polymer/lit-element": "^0.6.5",
+        "@types/es6-promise": "^3.3.0",
+        "lit-html": "latest",
+        "milligram": "^1.3.0",
+        "style-loader": "^0.23.1",
+        "webpack-deep-scope-plugin": "^1.6.0"
     }
 }

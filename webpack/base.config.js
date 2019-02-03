@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
 
 
 module.exports = function configure(env, argv, wdir) {
@@ -81,6 +82,7 @@ module.exports = function configure(env, argv, wdir) {
       new CopyWebpackPlugin([
                               {from: `${wdir}src/images`, to: 'images'},
                             ]),
+      new WebpackDeepScopeAnalysisPlugin(),
     ],
     optimization : {
       'concatenateModules': false,
