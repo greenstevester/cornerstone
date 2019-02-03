@@ -57,7 +57,10 @@ When things get even more complex you will need to bind properties to the render
 
 Complex feature demos can be factored out into a separate module. You can share states between the template and the properties there.
 ```javascript
+    import { module3 } from "./features/module3";
+    import { module4 } from "./features/module4";
+
     features
-      .add( 'feature three', template3, properties3)
-      .add( 'feature four', template4, properties4)
+      .add( 'feature three', module3.template, module3.properties)
+      .add( 'feature four', module4.template, module4.properties)
 ```
