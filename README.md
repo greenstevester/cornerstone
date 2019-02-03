@@ -1,6 +1,6 @@
 # Cornerstone
 
-![logo][./src/imaages/noun_building_1801.svg]
+![logo][src/images/noun_building_1801.svg]
 
 A webapack-based seed project that's a good foundation for modern JS/TS web applications. An attempt to make web development productivd without the lock-in of Big Frameworks!
 
