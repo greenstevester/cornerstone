@@ -96,3 +96,4 @@ That said
 * add unit and e2e testing support
 * clean-up sample code (apply tslint fixes)
 * problem with uglify and stacktraces in dev mode.
+* setup webpack so that components get built only once so they can be shared between the app and the demo.

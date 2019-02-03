@@ -1,6 +1,6 @@
 import { html, TemplateResult } from "lit-html";
-import { Router } from "../../src/lib/router";
-import { ShowroomExample } from "../../src/lib/showroom/components/stn-shrm-example";
+import { Router } from "../../lib/router";
+import { ShowroomExample } from "../../lib/showroom/components/stn-shrm-example";
 
 let router: Router;
 

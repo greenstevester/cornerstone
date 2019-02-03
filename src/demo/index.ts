@@ -1,7 +1,7 @@
 import { html } from "@polymer/lit-element";
 import { TemplateResult } from "lit-html";
-import { DynamicComponents } from "../src/app/components";
-import { Features, startDemo } from "../src/lib/showroom/app/showroom";
+import { DynamicComponents } from "../app/components";
+import { Features, startDemo } from "../lib/showroom/app/showroom";
 import { routerFeature } from "./features/feature-router";
 
 //start the demo with examples

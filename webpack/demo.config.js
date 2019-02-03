@@ -11,8 +11,8 @@ module.exports = function configure(env, argv, wdir) {
   return {
     devtool: 'source-map',
     entry: [
-      `${wdir}demo/index.ts`,
-      `${wdir}demo/index.css`
+      `${wdir}src/demo/index.ts`,
+      `${wdir}src/demo/index.css`
     ],
     output: {
       path: path.join(wdir, 'dist/demo'),
