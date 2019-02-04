@@ -1,3 +1,5 @@
-import InitDynamicModule from "./dynamic-module";
+import { Views } from "./app/view";
 
-InitDynamicModule();
+Views.load.app();
+
+console.log("hello");
