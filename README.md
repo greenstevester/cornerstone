@@ -62,6 +62,8 @@ That said
     ```
     yarn build
     ```
+    generates `dist/app` and `dist/demo`
+
     build and watch the app:
     ```
     yarn build.watch
@@ -70,9 +72,12 @@ That said
     ```
     yarn build.demo
     ```
-    You then need to run `http-serve dist/demo` to serve the demo.
+
+    You then need to run `http-serve dist/demo` or `http-serve dist/app` to serve any of the builds.
 
     Why not use the webpack server? Because we should test releasable code and avoid the build-test-rebuild anti-pattern
+
+    Note: the plan is to eventually share a single build of common code between app and demo.
 
 ## Reference
 * https://www.typescriptlang.org/ - TypeScript
