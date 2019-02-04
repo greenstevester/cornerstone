@@ -27,6 +27,7 @@ Most of the features in this seed project are optional. You should also be able 
 * Jest - for unit testing
 * TestCafe - for integration and end-to-end testing
 * Milligram - a tiny css library (<2k) that you can enhance or replace when/if you find you need something more.
+* Simple theming file to share css across components
 * Non-trivial example code showing all of the key features
 
 
