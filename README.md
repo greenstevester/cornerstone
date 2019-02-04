@@ -18,8 +18,6 @@ If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md
 ## Removable Features
 Most of the features in this seed project are optional. You should also be able to easily add dependencies that are compatible with ES6 and TypeScript.
 
-That said
-
 * lit-html and lit-element - Polymer core libraries to build true web components
     * Demo setup depends on these two libraries
 * Some custom code
@@ -31,6 +29,8 @@ That said
 * Milligram - a tiny css library (<2k) that you can enhance or replace when/if you find you need something more.
 * Non-trivial example code showing all of the key features
 
+
+That said I think this is a good stack that should allow to build simple or complex SPAs without any of the complexity and overhead of the big frameworks.
 
 ## Usage
 ### Setup
