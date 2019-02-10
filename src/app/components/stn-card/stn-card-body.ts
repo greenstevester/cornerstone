@@ -1,5 +1,5 @@
 import { Stone } from "../../../lib/stone";
-import { html } from "@polymer/lit-element";
+import { html } from "lit-element";
 
 export class CardBodyElement extends Stone {
 

@@ -1,19 +1,21 @@
-import { property } from "@polymer/lit-element";
+import { css, customElement, LitElement, property } from "lit-element";
 import { html, TemplateResult } from "lit-html";
 import { Stone } from "../../stone";
 import { StnShrmService } from "../app/stn-shrm.service";
 
-export class Showroom extends Stone {
+@customElement('stn-showroom')
+export class Showroom extends LitElement {
 
   @property({attribute: false})
   service!: StnShrmService;
 
-  @property({attribute: false})
-  private selectedExample: string = 'stn-card';
-
-  protected render(): TemplateResult | void {
-    return html`
-    <style>
+  constructor(){
+    super();
+    //
+  }
+  
+  static get styles() {
+    return css`
         #container {
             height: 100%;
         }
@@ -43,22 +45,20 @@ export class Showroom extends Stone {
         stn-demo-example {
             margin: 2rem;
         }
-    </style>
-    
+    `;
+  }
+  
+  protected render(): TemplateResult | void {
+    return html`
     <div id="container">
         <div id="sidebar">
             <stn-demo-menu id="sidebar-content" .service="${this.service}"></stn-demo-menu>
         </div><!--
 --><div id="content">
-            <stn-demo-example id="main-content" .service="${this.service}"></stn-demo-example>
+            <stn-demo-example id="main-content" .service="${this.service}" foo="bar"></stn-demo-example>
         </div>
     </div>
     `
-  }
-
-
-  createRenderRoot(): Element | ShadowRoot {
-    return this;
   }
 
 }

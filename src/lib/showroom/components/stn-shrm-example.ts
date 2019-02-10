@@ -1,24 +1,41 @@
-import { html, property } from "@polymer/lit-element";
-import { Stone } from "../../stone";
+import { customElement, html, LitElement, property, TemplateResult } from "lit-element";
 import { StnShrmService } from "../app/stn-shrm.service";
 
-export class ShowroomExample extends Stone {
+@customElement('stn-demo-example')
+export class ShowroomExample extends LitElement {
 
   @property({attribute: false})
   service!: StnShrmService;
-  @property({attribute: false})
-  name!: string | null;
+  
+  @property({type: String})
+  name = '';
+  
+  @property({type: String})
+  foo = '';
+  
   @property({attribute: false, type: Object})
-  exampleProps: Map<string, any> = new Map();
-
-  connectedCallback() {
-    this.service.registerSelectionWatcher((name) => {
-      this.name = name;
-      if (name) this.exampleProps = this.service.getProperties(name)(this);
-    })
+  exampleProps = new Map<string, any>();
+  
+  constructor() {
+    super();
+    this.name = '';
+    
+    
   }
-
-  render() {
+  
+  updated(changedProperties: any) {
+    changedProperties.forEach((oldValue: any, propName: any) => {
+      if (propName === 'service' && oldValue === undefined) {
+        this.service.registerSelectionWatcher((name) => {
+          this.name = name;
+          if (name) this.exampleProps = this.service.getProperties(name)(this);
+        });
+      }
+    });
+  }
+  
+  
+  render(): TemplateResult | void {
     if (this.name) {
       let template = this.service.getExampleTemplate(this.name, this);
       if (template.getHTML()) {
@@ -91,4 +108,5 @@ export class ShowroomExample extends Stone {
     return this.exampleProps.get(key);
   }
 
+  
 }

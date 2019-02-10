@@ -5,7 +5,7 @@ import { Features } from "./showroom";
 export class StnShrmService {
   private features: Features;
   private chosen: string | null = 'stn-card';
-  private callback?: (name: string | null) => void;
+  private callback?: (name: string) => void;
 
   constructor(features: Features) {
     this.features = features;
@@ -22,12 +22,12 @@ export class StnShrmService {
     return html``
   }
 
-  setSelected(name: string | null) {
+  setSelected(name: string) {
     this.chosen = name;
     if(this.callback) this.callback(name)
   }
 
-  registerSelectionWatcher(callback: (name: string | null) => void) {
+  registerSelectionWatcher(callback: (name: string ) => void) {
     this.callback = callback;
 
   }

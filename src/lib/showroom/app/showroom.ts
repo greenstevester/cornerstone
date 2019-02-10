@@ -1,4 +1,4 @@
-import { html } from "@polymer/lit-element";
+import { html } from "lit-element";
 import { render, TemplateResult } from "lit-html";
 import { ShowroomExample } from "../components/stn-shrm-example";
 import { Menu } from "../components/stn-shrm-menu";
@@ -8,9 +8,11 @@ import { StnShrmService } from "./stn-shrm.service";
 export function startDemo(features: Features) {
 
   //init demo service
-  Menu.define('stn-demo-menu');
-  Showroom.define('stn-showroom');
-  ShowroomExample.define('stn-demo-example');
+  Menu;
+  Showroom;
+  ShowroomExample;
+  
+  // window.customElements.define('stn-simple',Simple);
   const service = new StnShrmService(features);
 
   //init app template

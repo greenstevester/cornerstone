@@ -1,9 +1,8 @@
-import { html, property } from "@polymer/lit-element";
-import { Stone } from "../../stone";
+import { customElement, html, LitElement, property } from "lit-element";
 import { StnShrmService } from "../app/stn-shrm.service";
 
-
-export class Menu extends Stone {
+@customElement('stn-demo-menu')
+export class Menu extends LitElement {
 
   @property({attribute: false})
   service!: StnShrmService;
@@ -19,7 +18,7 @@ export class Menu extends Stone {
       ${Menu.renderStyles()}
       <h2>${this.service.getTitle()}</h2>
       <ul>
-        <li><h3><button @click="${() => this.choose(null)}">home</a></h3></li>
+        <li><h3><button @click="${() => this.choose('')}">home</a></h3></li>
         ${items}
       </ul>
     `
@@ -50,7 +49,7 @@ export class Menu extends Stone {
 `
   }
 
-  private choose(name: string | null) {
+  private choose(name: string) {
     this.service.setSelected(name)
   }
 

@@ -1,11 +1,12 @@
 import { Stone } from "../../lib/stone";
-import { html } from "@polymer/lit-element";
+import { html } from "lit-element";
 
 export class ViewApp extends Stone {
 
   connectedCallback() {
     console.log('app started');
     this.requestUpdate()
+    
   }
 
   render() {

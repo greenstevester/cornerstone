@@ -1,4 +1,4 @@
-import { html } from "@polymer/lit-element";
+import { html } from "lit-element";
 import { TemplateResult } from "lit-html";
 import { DynamicComponents } from "../app/components";
 import { Features, startDemo } from "../lib/showroom/app/showroom";
@@ -16,7 +16,17 @@ function initExamples() {
   features.setIntro('Welcome to the Cornerstone Feature Demo', welcome);
 
   features.add('stn-card',
-    (): TemplateResult => {return html` <stn-card title="the tile"> this is content </stn-card> `})
+    (): TemplateResult => {
+      return html`
+        <div class="container">
+            <div class="row">
+              <stn-card title="The First"> this is content </stn-card>
+              <stn-card title="The Second"> this is content </stn-card>
+              <stn-card title="The Third"> this is content </stn-card>
+            </div>
+        </div>
+`
+    })
     .add('stn-hero', (): TemplateResult => {return html``})
     .add('stn-header', (): TemplateResult => {return html``})
     .add('stn-footer', () => {return html``})

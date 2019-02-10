@@ -1,4 +1,4 @@
-import { LitElement } from '@polymer/lit-element/lit-element.js';
+import { LitElement } from 'lit-element';
 
 let id = 0;
 
@@ -14,6 +14,7 @@ export abstract class Stone extends LitElement {
     if (this.Class === 'Stone') {
       throw new TypeError('Cannot construct Stone instances directly');
     }
+    
   }
 
 
@@ -21,12 +22,12 @@ export abstract class Stone extends LitElement {
     return this.Class + ':' + this.Id;
   }
 
-  connectedCallback() {
-    console.debug(`connected: ${this.hashcode()}`);
-  }
+  // connectedCallback() {
+  //   console.debug(`connected: ${this.hashcode()}`);
+  // }
 
   static define(name?: string) {
-    try {
+    // try {
       const Class = this;
       if (name) {
         window.customElements.define(name, Class);
@@ -35,9 +36,10 @@ export abstract class Stone extends LitElement {
       } else {
         throw Error('either define [static this.name] or provide a valid name to the define(name) function');
       }
-    } catch (e) {
-      console.debug(`swallowing custom component define() for [${name ? name : this.tagname}] error: ${e.message}`);
-    }
+    // } catch (e) {
+    //   console.debug(`swallowing custom component define() for [${name ? name : this.tagname}] error: ${e.message}`);
+    //   throw e
+    // }
   }
 
   createRenderRoot(): Element | ShadowRoot {
