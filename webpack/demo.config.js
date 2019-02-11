@@ -11,8 +11,8 @@ module.exports = function configure(env, argv, wdir) {
   return {
     devtool: 'source-map',
     entry: [
-      `${wdir}src/demo/index.ts`,
-      `${wdir}src/demo/index.css`
+      `${wdir}src/app-showroom/index.ts`,
+      `${wdir}src/app-showroom/index.css`
     ],
     output: {
       path: path.join(wdir, 'dist/demo'),
@@ -78,7 +78,7 @@ module.exports = function configure(env, argv, wdir) {
     },
     plugins: [
       new CleanWebpackPlugin([`${wdir}dist/demo/`], {allowExternal: true}),
-      new HtmlWebpackPlugin({template: `${wdir}src/lib/showroom/index.html`, title: 'Demo'}),
+      new HtmlWebpackPlugin({template: `${wdir}src/cornerstone/showroom/index.html`, title: 'Demo'}),
       /*new CopyWebpackPlugin([
        {from: `${wdir}src/images`, to: 'images'},
        ]),*/

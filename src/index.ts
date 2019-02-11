@@ -1,5 +1,3 @@
-import { Views } from "./app/view";
+import { Views } from "./app/views";
 
 Views.load.app();
-
-console.log("hello");

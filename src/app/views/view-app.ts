@@ -1,4 +1,4 @@
-import { Stone } from "../../lib/stone";
+import { Stone } from "../../cornerstone/shared/stone";
 import { html } from "lit-element";
 
 export class ViewApp extends Stone {

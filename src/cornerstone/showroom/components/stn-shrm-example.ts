@@ -1,11 +1,11 @@
 import { customElement, html, LitElement, property, TemplateResult } from "lit-element";
-import { StnShrmService } from "../app/stn-shrm.service";
+import { ShowroomService } from "../app/showroom.service";
 
 @customElement('stn-demo-example')
 export class ShowroomExample extends LitElement {
 
   @property({attribute: false})
-  service!: StnShrmService;
+  service!: ShowroomService;
   
   @property({type: String})
   name = '';
@@ -28,7 +28,7 @@ export class ShowroomExample extends LitElement {
       if (propName === 'service' && oldValue === undefined) {
         this.service.registerSelectionWatcher((name) => {
           this.name = name;
-          if (name) this.exampleProps = this.service.getProperties(name)(this);
+          if (name) this.exampleProps = this.service.getProperty(name)(this, this.service);
         });
       }
     });
@@ -37,7 +37,7 @@ export class ShowroomExample extends LitElement {
   
   render(): TemplateResult | void {
     if (this.name) {
-      let template = this.service.getExampleTemplate(this.name, this);
+      let template = this.service.getExampleTemplate(this.name, this, this.service);
       if (template.getHTML()) {
         return html`
           ${ShowroomExample.renderStyles()}

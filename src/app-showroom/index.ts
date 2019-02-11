@@ -1,8 +1,8 @@
 import { html } from "lit-element";
 import { TemplateResult } from "lit-html";
 import { DynamicComponents } from "../app/components";
-import { Features, startDemo } from "../lib/showroom/app/showroom";
-import { routerFeature } from "./features/feature-router";
+import { Features, startDemo } from "../cornerstone/showroom/app/showroom";
+import { RouterFeature } from "./features/feature-router";
 
 //start the demo with examples
 startDemo(initExamples());
@@ -14,8 +14,9 @@ function initExamples() {
   let features = new Features("Cornerstone Features");
   
   features.setIntro('Welcome to the Cornerstone Feature Demo', welcome);
-
-  features.add('stn-card',
+  
+  features
+    .add('stn-card',
     (): TemplateResult => {
       return html`
         <div class="container">
@@ -30,7 +31,7 @@ function initExamples() {
     .add('stn-hero', (): TemplateResult => {return html``})
     .add('stn-header', (): TemplateResult => {return html``})
     .add('stn-footer', () => {return html``})
-    .add('router', routerFeature.template, routerFeature.properties)
+    .add('router', RouterFeature.template, RouterFeature.properties)
   ;
   return features;
 }

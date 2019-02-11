@@ -1,11 +1,11 @@
 import { customElement, html, LitElement, property } from "lit-element";
-import { StnShrmService } from "../app/stn-shrm.service";
+import { ShowroomService } from "../app/showroom.service";
 
 @customElement('stn-demo-menu')
 export class Menu extends LitElement {
 
   @property({attribute: false})
-  service!: StnShrmService;
+  service!: ShowroomService;
 
   render() {
     const items = [];

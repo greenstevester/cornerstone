@@ -1,13 +1,13 @@
 import { css, customElement, LitElement, property } from "lit-element";
 import { html, TemplateResult } from "lit-html";
-import { Stone } from "../../stone";
-import { StnShrmService } from "../app/stn-shrm.service";
+import { Stone } from "../../shared/stone";
+import { ShowroomService } from "../app/showroom.service";
 
 @customElement('stn-showroom')
 export class Showroom extends LitElement {
 
   @property({attribute: false})
-  service!: StnShrmService;
+  service!: ShowroomService;
 
   constructor(){
     super();

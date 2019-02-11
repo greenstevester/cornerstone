@@ -3,7 +3,7 @@ import { render, TemplateResult } from "lit-html";
 import { ShowroomExample } from "../components/stn-shrm-example";
 import { Menu } from "../components/stn-shrm-menu";
 import { Showroom } from "../components/stn-shrm-showroom";
-import { StnShrmService } from "./stn-shrm.service";
+import { ShowroomService } from "./showroom.service";
 
 export function startDemo(features: Features) {
 
@@ -12,12 +12,11 @@ export function startDemo(features: Features) {
   Showroom;
   ShowroomExample;
   
-  // window.customElements.define('stn-simple',Simple);
-  const service = new StnShrmService(features);
+  const service = new ShowroomService(features);
 
   //init app template
-
-  const showroomApp = (service: StnShrmService) => {
+  
+  const showroomApp = (service: ShowroomService) => {
     return html`<stn-showroom .service=${service} ></stn-showroom>`;
   };
 
@@ -25,10 +24,14 @@ export function startDemo(features: Features) {
   render(showroomApp(service), document.body);
 }
 
-export class Features {
+export type FeatureTemplate = (element: ShowroomExample, service: ShowroomService) => TemplateResult;
 
-  private features: Map<string, (element: ShowroomExample) => TemplateResult> = new Map();
-  private properties: Map<string, (element: ShowroomExample) => Map<string, any>> = new Map();
+export type FeatureProperty = (element: ShowroomExample, service: ShowroomService) => Map<string, any>;
+
+export class Features {
+  
+  private features: Map<string, FeatureTemplate> = new Map();
+  private properties: Map<string, FeatureProperty> = new Map();
   private welcome: string = '';
   private welcomeContent: () => void = () => {
   };
@@ -38,8 +41,8 @@ export class Features {
   }
 
   add(name: string,
-      example: (element: ShowroomExample) => TemplateResult,
-      properties?: (element: ShowroomExample) => Map<string, any>) {
+      example: FeatureTemplate,
+      properties?: FeatureProperty) {
 
     this.features.set(name, example);
     if (properties) this.properties.set(name, properties);
@@ -49,13 +52,12 @@ export class Features {
   getTitle() {
     return this.title;
   }
-
-  getAll() {
+  
+  getAll(): IterableIterator<string> {
     return this.features.keys()
   }
-
-
-  get(name: string): Function {
+  
+  get(name: string): FeatureTemplate {
     let fn = this.features.get(name);
     if (fn != null) {
       return fn;
@@ -78,7 +80,7 @@ export class Features {
     return this.welcomeContent()
   }
 
-  getProperties(name: string): Function {
+  getProperties(name: string): FeatureProperty {
     let map = this.properties.get(name);
     if (map) {
       return map;

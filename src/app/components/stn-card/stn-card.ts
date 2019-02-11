@@ -1,5 +1,5 @@
-import { html, property } from "lit-element";
-import { Stone } from "../../../lib/stone";
+import { css, html, property } from "lit-element";
+import { Stone } from "../../../cornerstone/shared/stone";
 
 export class CardElement extends Stone {
 
@@ -13,9 +13,9 @@ export class CardElement extends Stone {
     super();
     this.title = 'N/A';
   }
-
-  protected render(): any {
-    return html`<style>
+  
+  static get styles() {
+    return css`
     :host[hidden] {
         display: none;
     }
@@ -33,7 +33,11 @@ export class CardElement extends Stone {
         padding: 1rem;
         margin: .25rem;
     }
-</style>
+    `
+  }
+  
+  protected render(): any {
+    return html`
 <div class="column">
     <img src="${this.imageUrl}">
     <h2>${this.title}</h2>
