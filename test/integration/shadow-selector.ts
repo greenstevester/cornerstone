@@ -1,34 +1,40 @@
-import { ClientFunction, Selector } from "testcafe";
+import { Selector } from "testcafe";
 
-export async function ShadowSlectorInit(t: any) {
-  let func = ClientFunction(() => {
-    
-    var script = document.createElement('script');
-    
-    script.innerHTML = `
-       const shadowGet = function (components,selector) {
-          let node= document;
-          components.map(function (wc){
-            
-            node = node.querySelector(wc).shadowRoot;
-          });
-          if(selector){
-            return node.querySelectorAll(selector);
-          } else {
-            return node;
-          }
-        }
-      `;
-    
-    document.body.appendChild(script);
-  }).with({boundTestRun: t});
+export interface SSelector extends Selector {
+  findElementText(components: string[], sel?: string): Promise<any>;
+  countComponents(components: string): Promise<any>;
+}
+
+export function ShadowSelector(t: any): SSelector {
   
-  await func();
+  return <SSelector>Selector('stn-showroom')
+    .addCustomMethods(
+      {
+        findElementText: (node, components, element) => {
+          let querySelector = node
+            .shadowRoot!
+            .querySelector('stn-demo-example');
+          
+          let querySelector1 = querySelector!
+            .shadowRoot!
+            .querySelector(components[0]);
+          
+          let querySelector2 = querySelector1
+            .shadowRoot
+            .querySelector(element);
+          
+          return querySelector2.innerText;
+        },
+        countComponents: (node, components) => {
+          let root: any = node!
+            .shadowRoot!
+            .querySelector('stn-demo-example');
+          
+          return root.shadowRoot.querySelectorAll(components).length;
+          
+        }
+      })
+    .with({boundTestRun: t});
 }
 
-export function ShadowSelector(innerSelector: string): Selector {
-  return Selector(() => {
-    // @ts-ignore
-    return shadowGet(['stn-showroom', 'stn-demo-example']);
-  }).find(innerSelector);
-}
+
