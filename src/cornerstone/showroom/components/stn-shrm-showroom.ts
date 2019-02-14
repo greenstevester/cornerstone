@@ -1,6 +1,5 @@
 import { css, customElement, LitElement, property } from "lit-element";
 import { html, TemplateResult } from "lit-html";
-import { Stone } from "../../shared/stone";
 import { ShowroomService } from "../app/showroom.service";
 
 @customElement('stn-showroom')
@@ -16,10 +15,18 @@ export class Showroom extends LitElement {
   
   static get styles() {
     return css`
+        :host[hidden] {
+            display: none;
+        }
+        
+        :host {
+            display: block;
+        }
+        
         #container {
             height: 100%;
         }
-    
+        
         #sidebar {
             display: inline-block;
             vertical-align: top;
@@ -28,7 +35,7 @@ export class Showroom extends LitElement {
             overflow: auto;
             background: var(--color-complement-4);
         }
-    
+        
         #content {
             display: inline-block;
             vertical-align: top;
@@ -40,12 +47,13 @@ export class Showroom extends LitElement {
         
         stn-demo-example {
             color: var(--black);
-            
+        
         }
+        
         stn-demo-example {
             margin: 2rem;
         }
-    `;
+            `;
   }
   
   protected render(): TemplateResult | void {

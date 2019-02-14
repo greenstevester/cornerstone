@@ -28,6 +28,9 @@ export type FeatureTemplate = (element: ShowroomExample, service: ShowroomServic
 
 export type FeatureProperty = (element: ShowroomExample, service: ShowroomService) => Map<string, any>;
 
+const emptyTemplateFn = function():TemplateResult  {return html``};
+const emptyPropFn = function(): Map<string, any> {return new Map<string, any>()};
+
 export class Features {
   
   private features: Map<string, FeatureTemplate> = new Map();
@@ -41,9 +44,12 @@ export class Features {
   }
 
   add(name: string,
-      example: FeatureTemplate,
+      example?: FeatureTemplate,
       properties?: FeatureProperty) {
-
+  
+    example = example || emptyTemplateFn;
+    properties = properties || emptyPropFn;
+    
     this.features.set(name, example);
     if (properties) this.properties.set(name, properties);
     return this;

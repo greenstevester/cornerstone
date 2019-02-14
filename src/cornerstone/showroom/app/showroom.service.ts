@@ -1,5 +1,5 @@
 import { html, TemplateResult } from "lit-html";
-import { Router } from "../../shared/router";
+import { Router } from "../../shared/Router";
 import { ShowroomExample } from "../components/stn-shrm-example";
 import { FeatureProperty, Features } from "./showroom";
 

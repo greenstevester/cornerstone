@@ -78,9 +78,9 @@ module.exports = function configure(env, argv, wdir) {
     },
     plugins: [
       new CleanWebpackPlugin([`${wdir}dist/app`], {allowExternal: true}),
-      new HtmlWebpackPlugin({template: `${wdir}src/index.html`, title: 'Progressive Web Application'}),
+      new HtmlWebpackPlugin({template: `${wdir}src/app/index.html`, title: 'Progressive Web Application'}),
       new CopyWebpackPlugin([
-                              {from: `${wdir}src/images`, to: 'images'},
+                              {from: `${wdir}src/app/images`, to: 'images'},
                             ]),
       new WebpackDeepScopeAnalysisPlugin(),
     ],

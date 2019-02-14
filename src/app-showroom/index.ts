@@ -3,6 +3,7 @@ import { TemplateResult } from "lit-html";
 import { DynamicComponents } from "../app/components";
 import { Features, startDemo } from "../cornerstone/showroom/app/showroom";
 import { RouterFeature } from "./features/feature-router";
+import { StylesFeature } from "./features/feature-styles";
 
 //start the demo with examples
 startDemo(initExamples());
@@ -13,7 +14,7 @@ function initExamples() {
 
   let features = new Features("Cornerstone Features");
   
-  features.setIntro('Welcome to the Cornerstone Feature Demo', welcome);
+  features.setIntro('Welcome to the Cornerstone Feature Demo ', welcome);
   
   features
     .add('stn-card',
@@ -21,17 +22,19 @@ function initExamples() {
       return html`
         <div class="container">
             <div class="row">
-              <stn-card title="The First"> this is content </stn-card>
-              <stn-card title="The Second"> this is content </stn-card>
-              <stn-card title="The Third"> this is content </stn-card>
+              <stn-card title="The First" class="column"> this is content </stn-card>
+              <stn-card title="The Second" class="column"> this is content </stn-card>
+              <stn-card title="The Third" class="column"> this is content </stn-card>
             </div>
         </div>
 `
     })
-    .add('stn-hero', (): TemplateResult => {return html``})
-    .add('stn-header', (): TemplateResult => {return html``})
-    .add('stn-footer', () => {return html``})
+    .add('stn-hero')
+    .add('stn-header')
+    .add('stn-footer')
     .add('router', RouterFeature.template, RouterFeature.properties)
+    .add('styles', StylesFeature.template, RouterFeature.properties)
+  
   ;
   return features;
 }

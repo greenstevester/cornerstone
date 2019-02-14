@@ -1,6 +1,9 @@
 @import "../../node_modules/milligram/dist/milligram.css";
+
+/* THEME CSS*/
 @import "../theme.css";
 
+/* APP OVERRIDES*/
 body {
   background: var(--color-primary-1);
   color: var(--dark);
@@ -65,4 +68,21 @@ h1,h2 {
   vertical-align:bottom;
   text-align: center;
   display: table-cell;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button  {
+  background:none;
+  color: var(--color-complement-4);
+  border: none;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover  {
+  background: none;
+  color: var(--color-complement-2);
 }

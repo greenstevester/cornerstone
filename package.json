@@ -2,7 +2,7 @@
     "name": "starter",
     "version": "0.0.1",
     "description": "essential seed project for modern JS",
-    "main": "src/index.ts",
+    "main": "src/app/index.ts",
     "scripts": {
         "test": "test",
         "test.integration": "test tes",

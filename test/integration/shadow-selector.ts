@@ -5,26 +5,35 @@ export interface SSelector extends Selector {
   countComponents(components: string): Promise<any>;
 }
 
+/**
+ * Customized selector for
+ * @param t
+ * @constructor
+ */
 export function ShadowSelector(t: any): SSelector {
   
   return <SSelector>Selector('stn-showroom')
     .addCustomMethods(
       {
-        findElementText: (node, components, element) => {
-          let querySelector = node
+        findElementText: (node, components: string[], element) => {
+          let querySelector: HTMLElement | null = node
             .shadowRoot!
             .querySelector('stn-demo-example');
-          
-          let querySelector1 = querySelector!
+    
+          components.map((sel) => querySelector = querySelector!.shadowRoot!.querySelector(sel));
+    
+          querySelector = querySelector!
             .shadowRoot!
-            .querySelector(components[0]);
-          
-          let querySelector2 = querySelector1
-            .shadowRoot
             .querySelector(element);
-          
-          return querySelector2.innerText;
+    
+          return querySelector!.innerText;
         },
+  
+        /**
+         * Count the occurrence of an element
+         * @param node
+         * @param components
+         */
         countComponents: (node, components) => {
           let root: any = node!
             .shadowRoot!

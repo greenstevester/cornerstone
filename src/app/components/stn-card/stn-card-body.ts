@@ -1,7 +1,7 @@
-import { Stone } from "../../../cornerstone/shared/stone";
-import { html } from "lit-element";
+import { customElement, html, LitElement } from "lit-element";
 
-export class CardBodyElement extends Stone {
+@customElement('stn-card-body')
+export class CardBodyElement extends LitElement {
 
   connectedCallback() {
     this.requestUpdate();
