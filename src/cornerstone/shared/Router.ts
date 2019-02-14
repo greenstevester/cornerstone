@@ -49,4 +49,8 @@ export class Router {
       this.lastHash = hash;
     }
   }
+  
+  public currentRoute() {
+    return Router.getUrlHash();
+  }
 }

@@ -30,7 +30,7 @@ function initExamples() {
 `
     })
     .add('stn-hero')
-    .add('stn-header')
+    .add('stn-menu', () => {return html`<stn-menu></stn-menu>`})
     .add('stn-footer')
     .add('router', RouterFeature.template, RouterFeature.properties)
     .add('styles', StylesFeature.template, RouterFeature.properties)

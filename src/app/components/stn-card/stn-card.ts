@@ -24,7 +24,6 @@ export class CardElement extends LitElement {
     
     return html`
           <div>
-              
               <img src="${this.imageUrl}" alt="card image">
               <h2>${this.title}</h2>
               <stn-card-body>
