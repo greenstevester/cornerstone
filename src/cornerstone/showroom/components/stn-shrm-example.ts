@@ -19,7 +19,10 @@ export class ShowroomExample extends LitElement {
   constructor() {
     super();
     this.name = '';
-    
+  
+    this.updateComplete.then(() => {
+      this.service.routeToHash()
+    });
     
   }
   

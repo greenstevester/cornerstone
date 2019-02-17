@@ -10,7 +10,6 @@ export class Showroom extends LitElement {
 
   constructor(){
     super();
-    //
   }
   
   static get styles() {

@@ -33,6 +33,10 @@ export class Building extends LitElement {
     }
   }
   
+  protected gotoInitialRoute() {
+    if (this.router) { this.router.goto(this.router.currentRoute())}
+  }
+  
   render() {
     return this.appTemplate
   }

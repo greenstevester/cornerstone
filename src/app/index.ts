@@ -20,7 +20,10 @@ export class ViewApp extends Building {
     this.addRoute('about', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${about} `);
     this.addRoute('stack', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${stack} `);
     this.addRoute('story', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${story} `);
-   
+  
+    this.updateComplete.then(() => {
+      this.gotoInitialRoute()
+    });
   }
   
   static menu(router: Router) {

@@ -68,4 +68,8 @@ export class ShowroomService {
   routeTo(route: string) {
     this.router.goto(route)
   }
+  
+  routeToHash() {
+    this.router.goto(this.router.currentRoute());
+  }
 }

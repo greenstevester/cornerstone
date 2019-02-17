@@ -9,9 +9,7 @@ export class Router {
       let hash = tokens[1];
       this.goto(hash)
     };
-    if (Router.getUrlHash() === '') {
-      this.goto('');
-    }
+
   }
   
   static getUrlHash() {
@@ -25,9 +23,6 @@ export class Router {
   
   add(hash: string, action: (router:Router)=>void): Router {
     this.routes.set(hash, action);
-    if (Router.getUrlHash() === hash) {
-      this.goto(hash);
-    }
     return this;
   }
   
@@ -47,6 +42,7 @@ export class Router {
         this.baseFn(this);
       }
       this.lastHash = hash;
+      console.log(`lasthash: ${this.lastHash}`)
     }
   }
   
