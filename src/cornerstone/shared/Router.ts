@@ -42,11 +42,10 @@ export class Router {
         this.baseFn(this);
       }
       this.lastHash = hash;
-      console.log(`lasthash: ${this.lastHash}`)
     }
   }
   
-  public currentRoute() {
+  public static currentRoute() {
     return Router.getUrlHash();
   }
 }

@@ -13,17 +13,16 @@ export class ViewApp extends Building {
   constructor() {
     super();
   
-    DynamicComponents.await.card();
+    DynamicComponents.await.action();
     DynamicComponents.await.menu();
   
-    this.initRouter((r) => this.appTemplate = html`${ViewApp.menu(r)} ${home} `);
+    this.initRouter((r) => {
+      DynamicComponents.await.card();
+      return this.appTemplate = html`${ViewApp.menu(r)} ${home} `;
+    });
     this.addRoute('about', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${about} `);
     this.addRoute('stack', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${stack} `);
     this.addRoute('story', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${story} `);
-  
-    this.updateComplete.then(() => {
-      this.gotoInitialRoute()
-    });
   }
   
   static menu(router: Router) {

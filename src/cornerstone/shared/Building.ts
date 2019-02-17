@@ -14,6 +14,13 @@ export class Building extends LitElement {
   
   protected router?: Router;
   
+  constructor() {
+    super();
+    this.updateComplete.then(() => {
+      this.gotoInitialRoute()
+    });
+  }
+  
   /**
    * No Shadow Root
    */
@@ -34,7 +41,7 @@ export class Building extends LitElement {
   }
   
   protected gotoInitialRoute() {
-    if (this.router) { this.router.goto(this.router.currentRoute())}
+    if (this.router) { this.router.goto(Router.currentRoute())}
   }
   
   render() {

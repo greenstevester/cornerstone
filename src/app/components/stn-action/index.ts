@@ -17,7 +17,6 @@ export class Action extends Stone {
   
   protected render(): TemplateResult {
     const mergedClasses = {active: this.active};
-    console.log(`${this.hashcode()}: ${JSON.stringify(mergedClasses)}`);
     return html`
        <button class=${classMap(mergedClasses)}><slot></slot></button>
     `;

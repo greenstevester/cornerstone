@@ -70,6 +70,6 @@ export class ShowroomService {
   }
   
   routeToHash() {
-    this.router.goto(this.router.currentRoute());
+    this.router.goto(Router.currentRoute());
   }
 }
