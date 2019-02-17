@@ -1,37 +1,41 @@
 import { html } from "lit-element";
 
 export const home = html`
-        <div class="logo-section">
-            <img src="images/noun_building_1808.svg" class="logo" alt="logo">
-        </div>
-        <div class="main-section">
-            <h1>CORNERSTONE</h1>
-            <h3>Modern JS/TS seed project for building the right things right!</h3>
-        
-            <h5><img src="images/Cc.logo.circle.svg" class="attribution" alt="creative commons">
-                building by Antonis Makriyannis from the Noun Project
-            </h5>
-            <div>
-        
+            <div class="container">
+              <div class="row logo-section">
+                  <img src="images/noun_building_1808.svg" class="logo" alt="logo">
+              </div>
+              <div class="row">
+                <div class="column">
+                    <h1>CORNERSTONE</h1>
+                    <h3>A modern demonstration using Web Components to build single page applications!</h3>
+                    <ul>
+                        <li>Focus on your problems and your code</li>
+                        <li>Follow web standards</li>
+                        <li>Easily extend it</li>
+                        <li>A sane starting point without framework or tooling lock-in</li>
+                        <li>Makes it possible to manage a performance budget in your apps</li>
+                    </ul>
+                <div>
+              </div>
+                <div class="row">
+                    <stn-card title="Web Standards" class="column">
+                        <p>Work with... not against the browser</p>
+                    </stn-card>
+                    <stn-card title="Modern JS" class="column">
+                        <p>Code in Typescript and/or Javascript with all the latest features</p>
+                    </stn-card>
+                    <stn-card title="Not a Framework!" class="column">
+                        <p>A combination of the best tools, best practices, with standard setup</p>
+                    </stn-card>
+                    <stn-card title="Ready to Grow" class="column">
+                        <p>Carefully avoid framework, cli, or any other lock-inh</p>
+                    </stn-card>
+                </div>
+                <div class="row">
+                   <h5><img src="images/Cc.logo.circle.svg" class="attribution" alt="creative commons">
+                      building by Antonis Makriyannis from the Noun Project
+                  </h5>
+                </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
-              <stn-card title="Modern JS/TS" class="column">
-                  <p>Code in Typescript and/or Javascript with all the latest features</p>
-              </stn-card>
-              <stn-card title="Lit-Element" class="column">
-                  <p>Lightweight component model provided by the polymer project</p>
-              </stn-card>
-              <stn-card title="Lit-HTML" class="column">
-                  <p>Lightweight and fast template rendering provided by the polymer project</p>
-              </stn-card>
-              <stn-card title="Webpack" class="column">
-                  <p>A webpack config ready for production so you won't have to fight 'the man' when it turns out that transpiling for the real world
-                     breaks your world</p>
-                  <p>chunking and dynamic module loading ready to be used</p>
-              </stn-card>
-            </div>
-            
-        </div>
 `;

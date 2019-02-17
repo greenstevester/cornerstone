@@ -1,30 +1,27 @@
-import { css, customElement, html, LitElement, property } from "lit-element";
+import { customElement, html, property } from "lit-element";
+import { baseComponentCss, Stone } from "../../../cornerstone/shared/Stone";
+import { styles } from "./css";
 
 @customElement('stn-card')
-export class CardElement extends LitElement {
+export class CardElement extends Stone {
 
   @property()
   title = '';
   
   @property()
   imageUrl: string = '';
+  
+  static styles = [baseComponentCss, styles];
 
   constructor() {
     super();
     this.title = 'N/A';
   }
   
-  static get styles() {
-    return css`
-    
-    `
-  }
-  
   protected render(): any {
-    
     return html`
           <div>
-              <img src="${this.imageUrl}" alt="card image">
+              <img src="${this.imageUrl}"/>
               <h2>${this.title}</h2>
               <stn-card-body>
                   <slot></slot>

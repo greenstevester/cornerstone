@@ -6,7 +6,7 @@ import { ShowroomExample } from "../../cornerstone/showroom/components/stn-shrm-
 export const StylesFeature = {template: template, properties: properties};
 
 function template(element: ShowroomExample, srv: ShowroomService): TemplateResult {
-
+  
   
   return html`
   

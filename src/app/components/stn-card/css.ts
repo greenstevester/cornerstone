@@ -1,14 +1,6 @@
 import { css } from "lit-element";
 
 export const styles = css`
-    :host[hidden] {
-        display: none;
-    }
-    
-    :host {
-        display: block;
-    }
-    
     h2 {
         color: var(--color-complement-4);
     }

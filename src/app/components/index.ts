@@ -10,13 +10,21 @@ let menu = async function () {
   });
 };
 
+let action = async function () {
+  await import(/* webpackChunkName: "stn-action" */'./stn-action').then((scope) => {
+    scope.define()
+  });
+};
+
 export const DynamicComponents = {
   await: {
     all: function () {
       card();
       menu();
+      action()
     },
     card: card,
-    menu: menu
+    menu: menu,
+    action: action
   }
 };

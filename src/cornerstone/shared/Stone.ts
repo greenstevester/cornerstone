@@ -2,7 +2,7 @@ import { css, CSSResult, LitElement } from 'lit-element';
 
 let id = 0;
 
-const baseComponentCss:CSSResult = css`
+export const baseComponentCss: CSSResult = css`
     :host[hidden] {
         display: none;
     }
@@ -12,8 +12,8 @@ const baseComponentCss:CSSResult = css`
     }`;
 
 /**
- * Stone components are shaded components. Stone components are the basis for creating highly re-usable components that fully leverage shadow
- * DOM.
+ * Stone components are shaded components. Stone components are the basis for creating highly re-usable components that fully leverage
+ * shadow DOM.
  *
  * It provides default features
  *  - unique ID
@@ -38,13 +38,6 @@ export abstract class Stone extends LitElement {
   
   static styles = [baseComponentCss];
   
-  /**
-   * Add a css template to element
-   * @param css
-   */
-  static addStyleTemplate(css:CSSResult){
-      this.styles.push(css)
-  }
 
 }
 

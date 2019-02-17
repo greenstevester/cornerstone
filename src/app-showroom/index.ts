@@ -2,6 +2,7 @@ import { html } from "lit-element";
 import { TemplateResult } from "lit-html";
 import { DynamicComponents } from "../app/components";
 import { Features, startDemo } from "../cornerstone/showroom/app/showroom";
+import { ActionFeature } from "./features/feature-action";
 import { RouterFeature } from "./features/feature-router";
 import { StylesFeature } from "./features/feature-styles";
 
@@ -10,7 +11,7 @@ startDemo(initExamples());
 
 //create examples
 function initExamples() {
-  DynamicComponents.await.all();
+  DynamicComponents.await.card();
 
   let features = new Features("Cornerstone Features");
   
@@ -19,6 +20,7 @@ function initExamples() {
   features
     .add('stn-card',
     (): TemplateResult => {
+      DynamicComponents.await.card();
       return html`
         <div class="container">
             <div class="row">
@@ -26,12 +28,16 @@ function initExamples() {
               <stn-card title="The Second" class="column"> this is content </stn-card>
               <stn-card title="The Third" class="column"> this is content </stn-card>
             </div>
+            
         </div>
 `
     })
     .add('stn-hero')
-    .add('stn-menu', () => {return html`<stn-menu></stn-menu>`})
-    .add('stn-footer')
+    .add('stn-menu', () => {
+      DynamicComponents.await.menu();
+      return html`<stn-menu></stn-menu>`
+    })
+    .add('stn-action', ActionFeature.template, ActionFeature.properties)
     .add('router', RouterFeature.template, RouterFeature.properties)
     .add('styles', StylesFeature.template, RouterFeature.properties)
   
