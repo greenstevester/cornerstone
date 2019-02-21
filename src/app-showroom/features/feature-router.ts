@@ -12,9 +12,9 @@ function template(element: ShowroomExample, srv:ShowroomService): TemplateResult
 
   return html`
 <ul>
-    <li><button @click=${() => jumpTo('a')}>View A</button></li>
-    <li><button @click=${() => jumpTo('b')}>View B</button></li>
-    <li><button @click=${() => jumpTo('c')}>View C</button></li>
+    <li><button @click=${() => jumpTo('router/a')}>View A</button></li>
+    <li><button @click=${() => jumpTo('router/b')}>View B</button></li>
+    <li><button @click=${() => jumpTo('router/c')}>View C</button></li>
 </ul>
 <span>You last pressed: ${element.get('msg')}</span>
       `
@@ -22,12 +22,12 @@ function template(element: ShowroomExample, srv:ShowroomService): TemplateResult
 
 function properties(element: ShowroomExample, srv:ShowroomService): Map<string, any> {
   let properties = new Map<string, any>();
-  
+
   properties.set('msg', "N/A");
-  
-  srv.addRoute('a', () => {element.set('msg', 'Content A');});
-  srv.addRoute('b', () => {element.set('msg', 'Content B');});
-  srv.addRoute('c', () => {element.set('msg', 'Content C');});
+
+  srv.addRoute('router/a', () => {element.set('msg', 'Content A');});
+  srv.addRoute('router/b', () => {element.set('msg', 'Content B');});
+  srv.addRoute('router/c', () => {element.set('msg', 'Content C');});
 
   return properties;
 }
