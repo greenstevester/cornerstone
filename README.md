@@ -93,11 +93,11 @@ That said I think this is a good stack that should allow to build simple or comp
 
 ## Todo
 
-- [ ] find a decent routing library: complete, no overkill, reasonable size, ES6
+- [x] ~~find a decent routing library: complete, no overkill, reasonable size, ES6~~ I am providing a simple solution
 - [ ] find a decent XHR library... if it's really needed.
 - [ ] Make sure I can add angular, react, vue, polymer, web components without having to change the core
-- [ ] finish WPA support
-- [ ] add unit and e2e testing support
-- [ ] clean-up sample code (apply tslint fixes)
+- [ ] finish WPA support (pulled out for now)
+- [x] add unit and e2e testing support
+- [x] clean-up sample code (apply tslint fixes)
 - [ ] problem with uglify and stacktraces in dev mode.
 - [ ] setup webpack so that components get built only once so they can be shared between the app and the demo.

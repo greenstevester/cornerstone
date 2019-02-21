@@ -11,11 +11,12 @@ export function startDemo(features: Features) {
   Menu;
   Showroom;
   ShowroomExample;
-  
-  const service = new ShowroomService(features);
+
+  // @ts-ignore
+  const service = new ShowroomService(features, null);
 
   //init app template
-  
+
   const showroomApp = (service: ShowroomService) => {
     return html`<stn-showroom .service=${service} ></stn-showroom>`;
   };
@@ -32,7 +33,7 @@ const emptyTemplateFn = function():TemplateResult  {return html``};
 const emptyPropFn = function(): Map<string, any> {return new Map<string, any>()};
 
 export class Features {
-  
+
   private features: Map<string, FeatureTemplate> = new Map();
   private properties: Map<string, FeatureProperty> = new Map();
   private welcome: string = '';
@@ -46,10 +47,10 @@ export class Features {
   add(name: string,
       example?: FeatureTemplate,
       properties?: FeatureProperty) {
-  
+
     example = example || emptyTemplateFn;
     properties = properties || emptyPropFn;
-    
+
     this.features.set(name, example);
     if (properties) this.properties.set(name, properties);
     return this;
@@ -58,11 +59,11 @@ export class Features {
   getTitle() {
     return this.title;
   }
-  
+
   getAll(): IterableIterator<string> {
     return this.features.keys()
   }
-  
+
   get(name: string): FeatureTemplate {
     let fn = this.features.get(name);
     if (fn != null) {

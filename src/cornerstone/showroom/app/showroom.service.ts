@@ -1,3 +1,4 @@
+import { LitElement } from "lit-element";
 import { html, TemplateResult } from "lit-html";
 import { Router } from "../../shared/Router";
 import { ShowroomExample } from "../components/stn-shrm-example";
@@ -9,19 +10,21 @@ export class ShowroomService {
   private callback?: (name: string) => void;
   private router: Router;
 
-  constructor(features: Features) {
+  constructor(features: Features, parent: LitElement) {
     this.features = features;
-    this.router = new Router(window.location.href, () => {
-      this.chosen = '';
-      if (this.callback) this.callback(name)
-    });
+    this.router = new Router(
+      (p, r) => {
+        this.chosen = '';
+        if (this.callback) this.callback(name)
+      },
+      parent);
     for (const name of this.features.getAll()) {
-      this.router.add(name, () => {
+      this.router.add(name, (p, r) => {
         this.chosen = name;
         if (this.callback) this.callback(name)
       })
     }
-    
+
   }
 
   getFeatureNames() {
@@ -37,7 +40,7 @@ export class ShowroomService {
 
   setSelected(name: string) {
     this.router.goto(name);
-    
+
   }
 
   registerSelectionWatcher(callback: (name: string ) => void) {
@@ -56,19 +59,19 @@ export class ShowroomService {
   getWelcomeContent() {
     return this.features.getWelcomeContent()
   }
-  
+
   getProperty(name: string): FeatureProperty {
     return this.features.getProperties(name)
   }
-  
+
   addRoute(hash: string, action: () => void) {
     this.router.add(hash, action);
   }
-  
+
   routeTo(route: string) {
     this.router.goto(route)
   }
-  
+
   routeToHash() {
     this.router.goto(Router.currentRoute());
   }

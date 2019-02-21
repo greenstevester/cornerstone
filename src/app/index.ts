@@ -9,25 +9,25 @@ import { story } from "./views/view-story";
 
 @customElement('stn-app')
 export class ViewApp extends Building {
-  
+
   constructor() {
     super();
-  
+
     DynamicComponents.await.action();
     DynamicComponents.await.menu();
-  
+
     this.initRouter((r) => {
       DynamicComponents.await.card();
       return this.appTemplate = html`${ViewApp.menu(r)} ${home} `;
     });
-    this.addRoute('about', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${about} `);
-    this.addRoute('stack', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${stack} `);
-    this.addRoute('story', (r) => this.appTemplate = html`${ViewApp.menu(r)} ${story} `);
+    this.addRoute('about', (r) => { return this.appTemplate = html`${ViewApp.menu(r)} ${about} `;});
+    this.addRoute('stack', (r) => { return this.appTemplate = html`${ViewApp.menu(r)} ${stack} `;});
+    this.addRoute('story', (r) => { return this.appTemplate = html`${ViewApp.menu(r)} ${story} `;});
   }
-  
+
   static menu(router: Router) {
     return html`<stn-menu .router=${router}></stn-menu>`;
   }
-  
+
 }
 
