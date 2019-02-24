@@ -1,10 +1,11 @@
 import { LitElement } from "lit-element";
 import { html, TemplateResult } from "lit-html";
+import { FeatureProperties } from ".";
 import { Router } from "../../shared/Router";
 import { ShowroomExample } from "../components/stn-shrm-example";
-import { FeatureProperty, Features } from "./showroom";
+import { Features } from "../demo";
 
-export class ShowroomService {
+export class FeatureService {
   private features: Features;
   private chosen: string | null = 'stn-card';
   private callback?: (name: string) => void;
@@ -31,7 +32,7 @@ export class ShowroomService {
     return this.features.getAll()
   }
 
-  getExampleTemplate(name: string, element: ShowroomExample, service:ShowroomService): TemplateResult {
+  getExampleTemplate(name: string, element: ShowroomExample, service: FeatureService): TemplateResult {
     if (name) {
       return this.features.get(name)(element,service)
     }
@@ -60,7 +61,7 @@ export class ShowroomService {
     return this.features.getWelcomeContent()
   }
 
-  getProperty(name: string): FeatureProperty {
+  getProperty(name: string): FeatureProperties {
     return this.features.getProperties(name)
   }
 

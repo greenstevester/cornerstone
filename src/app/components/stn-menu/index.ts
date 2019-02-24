@@ -5,14 +5,14 @@ import { Router } from "../../../cornerstone/shared/Router";
 
 @customElement('stn-menu')
 export class Menu extends Facade {
-  
+
   @property({type: Object, attribute: false})
   public router: Router | undefined;
-  
+
   @property({type: String, attribute: false})
   private hash: string = '';
-  
-  
+
+
   protected render(): TemplateResult | void {
     return html`
        <div class="container">
@@ -25,12 +25,12 @@ export class Menu extends Facade {
        </div>
 `;
   }
-  
+
   private dispatch(hash: string) {
     this.hash = hash;
     this.router ? this.router.goto(hash) : null;
   }
-  
+
   private isSelected(hash: string) {
     return Router.currentRoute() === hash
   }

@@ -2,7 +2,7 @@ import { html, LitElement, property, TemplateResult } from "lit-element";
 import { RouteAction, Router } from "./Router";
 
 /**
- * High level component that provides a container for the app:
+ * High level component that provides a container for the feature:
  *  - a high level template
  *  - simple routing
  *  - bootstrapping

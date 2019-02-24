@@ -1,7 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -12,7 +12,7 @@ module.exports = function configure(env, argv, wdir) {
     devtool: 'source-map',
     entry: [
       `${wdir}src/app-showroom/index.ts`,
-      `${wdir}src/app-showroom/index.css`
+      `${wdir}src/cornerstone/showroom/index.scss`,
     ],
     output: {
       path: path.join(wdir, 'dist/demo'),
@@ -37,8 +37,15 @@ module.exports = function configure(env, argv, wdir) {
           loader: 'ts-loader',
         },
         {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+          test: /\.scss$/,
+          use: [
+            {loader: MiniCssExtractPlugin.loader},
+            {
+              loader: 'css-loader',
+              options: {importLoaders: 2},
+            },
+            {loader: 'postcss-loader'},
+          ],
         },
         {
           test: /\.(gif|png|jpe?g|svg)$/i,
@@ -82,6 +89,12 @@ module.exports = function configure(env, argv, wdir) {
       /*new CopyWebpackPlugin([
        {from: `${wdir}src/images`, to: 'images'},
        ]),*/
+      new MiniCssExtractPlugin({
+                                 // Options similar to the same options in webpackOptions.output
+                                 // both options are optional
+                                 filename: '[name].[hash].css',
+                                 chunkFilename: '[id].[hash].css',
+                               }),
     ],
     optimization: {
       'concatenateModules': false,

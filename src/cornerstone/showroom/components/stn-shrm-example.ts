@@ -1,31 +1,32 @@
-import { customElement, html, LitElement, property, TemplateResult } from "lit-element";
-import { ShowroomService } from "../app/showroom.service";
+import { customElement, html, property, TemplateResult } from "lit-element";
+import { Facade } from "../../shared/Facade";
+import { FeatureService } from "../feature/feature.service";
 
 @customElement('stn-demo-example')
-export class ShowroomExample extends LitElement {
+export class ShowroomExample extends Facade {
 
   @property({attribute: false})
-  service!: ShowroomService;
-  
+  service!: FeatureService;
+
   @property({type: String})
   name = '';
-  
+
   @property({type: String})
   foo = '';
-  
+
   @property({attribute: false, type: Object})
   exampleProps = new Map<string, any>();
-  
+
   constructor() {
     super();
     this.name = '';
-  
+
     this.updateComplete.then(() => {
       this.service.routeToHash()
     });
-    
+
   }
-  
+
   updated(changedProperties: any) {
     changedProperties.forEach((oldValue: any, propName: any) => {
       if (propName === 'service' && oldValue === undefined) {
@@ -36,8 +37,8 @@ export class ShowroomExample extends LitElement {
       }
     });
   }
-  
-  
+
+
   render(): TemplateResult | void {
     if (this.name) {
       let template = this.service.getExampleTemplate(this.name, this, this.service);
@@ -69,7 +70,8 @@ export class ShowroomExample extends LitElement {
   }
 
   static renderStyles() {
-    return html`<style>
+    return html`
+<style>
     :host[hidden] {
         display: none;
     }
@@ -111,5 +113,5 @@ export class ShowroomExample extends LitElement {
     return this.exampleProps.get(key);
   }
 
-  
+
 }

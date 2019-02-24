@@ -3,7 +3,8 @@ import { render, TemplateResult } from "lit-html";
 import { ShowroomExample } from "../components/stn-shrm-example";
 import { Menu } from "../components/stn-shrm-menu";
 import { Showroom } from "../components/stn-shrm-showroom";
-import { ShowroomService } from "./showroom.service";
+import { FeatureProperties, FeatureTemplate } from "../feature";
+import { FeatureService } from "../feature/feature.service";
 
 export function startDemo(features: Features) {
 
@@ -13,21 +14,17 @@ export function startDemo(features: Features) {
   ShowroomExample;
 
   // @ts-ignore
-  const service = new ShowroomService(features, null);
+  const service = new FeatureService(features, null);
 
-  //init app template
+  //init feature template
 
-  const showroomApp = (service: ShowroomService) => {
-    return html`<stn-showroom .service=${service} ></stn-showroom>`;
+  const showroomApp = (service: FeatureService) => {
+    return html`<stn-showroom  .service=${service} ></stn-showroom>`;
   };
 
-  //start app
+  //start feature
   render(showroomApp(service), document.body);
 }
-
-export type FeatureTemplate = (element: ShowroomExample, service: ShowroomService) => TemplateResult;
-
-export type FeatureProperty = (element: ShowroomExample, service: ShowroomService) => Map<string, any>;
 
 const emptyTemplateFn = function():TemplateResult  {return html``};
 const emptyPropFn = function(): Map<string, any> {return new Map<string, any>()};
@@ -35,7 +32,7 @@ const emptyPropFn = function(): Map<string, any> {return new Map<string, any>()}
 export class Features {
 
   private features: Map<string, FeatureTemplate> = new Map();
-  private properties: Map<string, FeatureProperty> = new Map();
+  private properties: Map<string, FeatureProperties> = new Map();
   private welcome: string = '';
   private welcomeContent: () => void = () => {
   };
@@ -46,7 +43,7 @@ export class Features {
 
   add(name: string,
       example?: FeatureTemplate,
-      properties?: FeatureProperty) {
+      properties?: FeatureProperties) {
 
     example = example || emptyTemplateFn;
     properties = properties || emptyPropFn;
@@ -87,7 +84,7 @@ export class Features {
     return this.welcomeContent()
   }
 
-  getProperties(name: string): FeatureProperty {
+  getProperties(name: string): FeatureProperties {
     let map = this.properties.get(name);
     if (map) {
       return map;

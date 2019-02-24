@@ -1,52 +1,33 @@
-import { customElement, html, LitElement, property } from "lit-element";
-import { ShowroomService } from "../app/showroom.service";
+import { customElement, html, property } from "lit-element";
+import { Facade } from "../../shared/Facade";
+import { baseComponentCss } from "../../shared/Stone";
+import { FeatureService } from "../feature/feature.service";
 
 @customElement('stn-demo-menu')
-export class Menu extends LitElement {
+export class Menu extends Facade {
 
+  static styles = [
+    baseComponentCss,
+
+  ];
   @property({attribute: false})
-  service!: ShowroomService;
+  service!: FeatureService;
 
   render() {
     const items = [];
 
     for (const name of this.service.getFeatureNames()) {
-      items.push(html`<li><h3><pre><button @click="${() => this.choose(name)}">${name}</a></pre></h3></li>`);
+      items.push(html`<li><button @click="${() => this.choose(name)}">${name}</button></li>`);
     }
 
     return html`
-      ${Menu.renderStyles()}
+      
       <h2>${this.service.getTitle()}</h2>
       <ul>
-        <li><h3><button @click="${() => this.choose('')}">home</a></h3></li>
+        <li><button @click="${() => this.choose('')}">home</button></li>
         ${items}
       </ul>
     `
-  }
-
-  static renderStyles() {
-    return html`<style>
-    :host[hidden] {
-        display: none;
-    }
-
-    :host {
-        display: block;
-    }
-
-    button {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: var(--white) ;
-    }
-
-    button:hover {
-        color: var(--color-secondary-1-2);
-    }
-    
-</style>
-`
   }
 
   private choose(name: string) {
