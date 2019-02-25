@@ -12,6 +12,7 @@ body.container {
 
 stn-showroom .row {
   height: 100%;
+  width: 96%;
 }
 
 stn-demo-menu {
@@ -27,12 +28,25 @@ stn-demo-menu h2 {
 stn-demo-menu button {
   background-color: var(--color-complement-4);
   border: var(--color-complement-4);
+  width: 100%;
+  text-align: left;
+}
+
+stn-demo-menu button:hover {
+  background-color: var(--color-complement-2);
+  border: var(--color-complement-2);
+  color: var(--dark);
+  width: 100%;
 }
 
 stn-demo-menu ul {
   list-style: none;
 }
 
-stn-demo-example {
-  padding: 3rem;
+stn-demo-example h3 pre {
+  border-left: 0.3rem solid var(--color-complement-4);
+}
+
+#main-content {
+  margin-left: 3rem;
 }

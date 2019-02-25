@@ -6,6 +6,7 @@ export const styles = css`
                             border: none;
                             color: var(--color-complement-4);
                             margin-bottom: .875rem;
+                            font-size: 2rem;
                         }
                         
                         button:hover {

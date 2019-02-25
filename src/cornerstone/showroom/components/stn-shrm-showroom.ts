@@ -18,7 +18,7 @@ export class Showroom extends Facade {
 <!--    <div class="container">-->
         <div class="row">
             <stn-demo-menu id="sidebar-content" class="column-20" .service="${this.service}"></stn-demo-menu>        
-            <stn-demo-example id="main-content" class="column-70" .service="${this.service}" foo="bar"></stn-demo-example>
+            <stn-demo-example id="main-content" class="column" .service="${this.service}" foo="bar"></stn-demo-example>
         </div>
 <!--    </div>-->
     `

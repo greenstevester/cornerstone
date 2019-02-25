@@ -21,14 +21,11 @@ function initExamples() {
     (): TemplateResult => {
       DynamicComponents.await.card();
       return html`
-        <div class="container">
             <div class="row">
-              <stn-card title="The First"  class="column"> this is content </stn-card>
-              <stn-card title="The Second" class="column"> this is content </stn-card>
-              <stn-card title="The Third"  class="column"> this is content </stn-card>
+              <stn-card title="The First"  class="column" height="35rem"> this is content </stn-card>
+              <stn-card title="The Second" class="column" height="35rem"> this is content </stn-card>
+              <stn-card title="The Third"  class="column" height="35rem"> this is content </stn-card>
             </div>
-            
-        </div>
 `
     })
     // .add('stn-hero')

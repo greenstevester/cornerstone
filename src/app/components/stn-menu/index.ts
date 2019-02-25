@@ -12,17 +12,16 @@ export class Menu extends Facade {
   @property({type: String, attribute: false})
   private hash: string = '';
 
-
   protected render(): TemplateResult | void {
     return html`
-       <div class="container">
+<!--       <div class="container">-->
             <div class="row">
-                <stn-action class='column' @click=${() => this.dispatch('')} ?active="${this.isSelected('')}">Home</stn-action>
-                <stn-action class='column' @click=${() => this.dispatch('stack')} ?active="${this.isSelected('stack')}">The Stack</stn-action>
-                <stn-action class='column' @click=${() => this.dispatch('story')} ?active="${this.isSelected('story')}">The Story</stn-action>
+                <stn-action class='column column-10 column-offset-20' @click=${() => this.dispatch('')} ?active="${this.isSelected('')}">Home</stn-action>
+                <stn-action class='column column-10' @click=${() => this.dispatch('stack')} ?active="${this.isSelected('stack')}">The Stack</stn-action>
+                <stn-action class='column column-10' @click=${() => this.dispatch('story')} ?active="${this.isSelected('story')}">The Story</stn-action>
                 <stn-action class='column' @click=${() => this.dispatch('about')} ?active="${this.isSelected('about')}">About</stn-action>
             </div>
-       </div>
+<!--       </div>-->
 `;
   }
 

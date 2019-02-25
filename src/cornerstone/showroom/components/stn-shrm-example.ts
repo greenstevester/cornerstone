@@ -45,7 +45,7 @@ export class ShowroomExample extends Facade {
       if (template.getHTML()) {
         return html`
           ${ShowroomExample.renderStyles()}
-          <h2><pre>${this.name}</pre></h2>
+          <h3><pre>${this.name}</pre></h3>
           <div class="example">
               ${template}
           </div>

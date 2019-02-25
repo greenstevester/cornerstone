@@ -6,7 +6,7 @@ export const styles = css`
     }
     
     div {
-        border: var(--dark) solid 0.26rem;
+        border: var(--color-secondary-2-4) solid 0.26rem;
         padding: 1rem;
         margin: .25rem;
     }
