@@ -5,7 +5,7 @@
     "main"           : "src/app/index.ts",
     "scripts"        : {
         "test"            : "jest --coverage --watch",
-        "test.integration": "testcafe",
+        "test.integration": "testcafe --live",
         "lint"            : "tslint --project .",
         "build"           : "webpack --mode production; webpack --mode production --demo",
         "build.watch"     : "webpack --watch --mode production",

@@ -1,46 +1,43 @@
 import { Selector } from "testcafe";
 
 export interface SSelector extends Selector {
-  findElementText(components: string[], sel?: string): Promise<any>;
-  countComponents(components: string): Promise<any>;
+  findShadowedElementText(shadowedComponentSelectors: string[], elementSelector?: string): Promise<any>;
+
+  countComponents(shadowedComponentSelectors: string[]): Promise<any>;
 }
 
 /**
  * Customized selector for
  * @param t
+ * @param baseSelector
  * @constructor
  */
-export function ShadowSelector(t: any): SSelector {
-  
-  return <SSelector>Selector('stn-showroom')
+export function ShadowSelector(t: any, baseSelector: string): SSelector {
+
+  return <SSelector>Selector(baseSelector)
     .addCustomMethods(
       {
-        findElementText: (node, components: string[], element) => {
-          let querySelector: HTMLElement | null = node
-            .shadowRoot!
-            .querySelector('stn-demo-example');
-    
-          components.map((sel) => querySelector = querySelector!.shadowRoot!.querySelector(sel));
-    
-          querySelector = querySelector!
-            .shadowRoot!
-            .querySelector(element);
-    
-          return querySelector!.innerText;
+        findShadowedElementText: (node, shadowedComponentSelectors: string[], elementSelector: string) => {
+          let n: any = node;
+          shadowedComponentSelectors.map((sel) => n = n!.querySelector(sel).shadowRoot!);
+          n = n!.querySelector(elementSelector);
+          return n!.innerText;
         },
-  
+
         /**
          * Count the occurrence of an element
          * @param node
-         * @param components
+         * @param shadowedComponentSelectors
+         * @param elementSelector
          */
-        countComponents: (node, components) => {
-          let root: any = node!
-            .shadowRoot!
-            .querySelector('stn-demo-example');
-          
-          return root.shadowRoot.querySelectorAll(components).length;
-          
+        countComponents: (node, shadowedComponentSelectors: string[]) => {
+          let n: any = node;
+          shadowedComponentSelectors.map((sel, index) => {
+            n = n!.querySelectorAll(sel);
+            if (index !== shadowedComponentSelectors!.length - 1) n = n!.shadowRoot;
+            return n;
+          });
+          return n!.length;
         }
       })
     .with({boundTestRun: t});
