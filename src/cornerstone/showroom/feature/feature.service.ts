@@ -74,6 +74,6 @@ export class FeatureService {
   }
 
   routeToHash() {
-    this.router.goto(Router.currentRoute());
+    this.router.goto(Router.currentBrowserRoute());
   }
 }

@@ -3,7 +3,7 @@ import { proxy, Router } from "../../../../src/cornerstone/shared/Router";
 describe('Router', () => {
   it('goes to main route on \'\'', done => {
     const router = new Router((r) => {
-      expect(Router.currentRoute()).toBe('');
+      expect(Router.currentBrowserRoute()).toBe('');
       expect(r).not.toBeNull();
       done();
     });
@@ -33,11 +33,11 @@ describe('Router', () => {
     const router = new Router();
 
     router.add('a', () => {
-      expect(Router.currentRoute()).toBe('a');
+      expect(Router.currentBrowserRoute()).toBe('a');
       done();
     });
     router.add('b', () => {
-      expect(Router.currentRoute()).toBe('b');
+      expect(Router.currentBrowserRoute()).toBe('b');
       done();
     });
 
@@ -51,18 +51,18 @@ describe('Router', () => {
     let aCalledFirst = false;
     let a1CalledSecond = false;
     router.add('a', () => {
-      expect(Router.currentRoute()).toBe('a/1/x');
+      expect(Router.currentBrowserRoute()).toBe('a/1/x');
       expect(a1CalledSecond).toBeFalsy();
       aCalledFirst = true;
     });
     router.add('a/1', () => {
-      expect(Router.currentRoute()).toBe('a/1/x');
+      expect(Router.currentBrowserRoute()).toBe('a/1/x');
       expect(aCalledFirst).toBeTruthy();
       a1CalledSecond = true;
     });
     router.add('a/1/x', () => {
       expect(a1CalledSecond).toBeTruthy();
-      expect(Router.currentRoute()).toBe('a/1/x');
+      expect(Router.currentBrowserRoute()).toBe('a/1/x');
       done()
     });
 
@@ -73,7 +73,7 @@ describe('Router', () => {
     const router = new Router();
 
     router.add('a', () => {
-      expect(Router.currentRoute()).toBe('a');
+      expect(Router.currentBrowserRoute()).toBe('a');
       done();
     });
 

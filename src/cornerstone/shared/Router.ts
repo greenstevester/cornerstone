@@ -1,5 +1,8 @@
 import { LitElement } from "lit-element";
 
+/**
+ * Proxy implementation of Dom to make testing possible
+ */
 export const proxy = new (class DomDelegate {
   window: any;
   document: any;
@@ -18,10 +21,23 @@ export const proxy = new (class DomDelegate {
   }
 })();
 
+/**
+ * Action Interface
+ */
 export interface RouteAction {
   (router: Router, parent?: LitElement | null): void
 };
 
+/**
+ * Simple Router that provides a basic mapping of a route(string) to an action(function)
+ *
+ * <p>It supports sub-routes defined as <code>'a/b/c'</code> where the <code>/</code> is the sub-path delimiter. For example if you provide
+ * a route for <code>'a'</code> and <code>'a/b'</code> and then the route <code>'#a/b'</code> is requested either through
+ * {@link Router.goto('a/b')} or with {@link https://myhost/apath#a/b} then actions registered for <code>'a'</code> and for
+ * <code>'a/b'</code> will be called in that order.
+ *
+ * <p>If a non-existent route is called nothing happens.
+ */
 export class Router {
   private routes: Map<string, RouteAction> = new Map();
   private lastHash: string | null = null;
@@ -38,6 +54,9 @@ export class Router {
 
   }
 
+  /**
+   * Get the current urls hash (exluding the '#')
+   */
   static getUrlHash() {
     let hash = proxy.window.location.hash;
     if (hash) {
@@ -47,11 +66,29 @@ export class Router {
     }
   }
 
+  public static currentBrowserRoute() {
+    return Router.getUrlHash();
+  }
+
+  /**
+   * Add a route
+   * @param {string} name corresponding to hash. Supports sub-paths.
+   * @param {RouteAction} action function called when route called
+   */
   add(hash: string, action: RouteAction): Router {
     this.routes.set(hash, action);
     return this;
   }
 
+  private dispatch(hash: string, parent: LitElement | null) {
+    let fn = this.routes.get(hash);
+    if (fn) fn(this, parent);
+  }
+
+  /**
+   * Go to a route
+   * @param {string} hash route to go to. `#` will be stripped if provided.
+   */
   goto(hash: string | null) {
     if (hash === null) hash = '';
 
@@ -81,15 +118,6 @@ export class Router {
       }
       this.lastHash = hash;
     }
-  }
-
-  private dispatch(hash: string, parent: LitElement | null) {
-    let fn = this.routes.get(hash);
-    if (fn) fn(this, parent);
-  }
-
-  public static currentRoute() {
-    return Router.getUrlHash();
   }
 }
 

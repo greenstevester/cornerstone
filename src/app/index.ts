@@ -1,14 +1,14 @@
 import { customElement, html } from "lit-element";
-import { Building } from "../cornerstone/shared/Building";
 import { Router } from "../cornerstone/shared/Router";
+import { SuperStructure } from "../cornerstone/shared/SuperStructure";
 import { DynamicComponents } from "./components";
-import { about } from "./views/view-about";
-import { home } from "./views/view-home";
-import { stack } from "./views/view-stack";
-import { story } from "./views/view-story";
+import { about } from "./facades/facade-about";
+import { home } from "./facades/facade-home";
+import { stack } from "./facades/facade-stack";
+import { story } from "./facades/facade-story";
 
 @customElement('stn-app')
-export class ViewApp extends Building {
+export class CornerstoneApp extends SuperStructure {
 
   constructor() {
     super();
@@ -18,11 +18,12 @@ export class ViewApp extends Building {
 
     this.initRouter((r) => {
       DynamicComponents.await.card();
-      return this.appTemplate = html`${ViewApp.menu(r)} ${home} `;
+      return this.appTemplate = html`${CornerstoneApp.menu(r)} ${home} `;
     });
-    this.addRoute('about', (r) => { return this.appTemplate = html`${ViewApp.menu(r)} ${about} `;});
-    this.addRoute('stack', (r) => { return this.appTemplate = html`${ViewApp.menu(r)} ${stack} `;});
-    this.addRoute('story', (r) => { return this.appTemplate = html`${ViewApp.menu(r)} ${story} `;});
+
+    this.addRoute('about', (r) => { return this.appTemplate = html`${CornerstoneApp.menu(r)} ${about} `;});
+    this.addRoute('stack', (r) => { return this.appTemplate = html`${CornerstoneApp.menu(r)} ${stack} `;});
+    this.addRoute('story', (r) => { return this.appTemplate = html`${CornerstoneApp.menu(r)} ${story} `;});
   }
 
   static menu(router: Router) {
