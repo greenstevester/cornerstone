@@ -59,13 +59,13 @@ That said I think this is a good stack that should allow to build simple or comp
     yarn lint
     ```
 * _building and watching_ - There are variations here for different purposes... mostly obvious
-    build the feature and the demo
+    build the app and the demo
     ```
     yarn build
     ```
-    generates `dist/feature` and `dist/demo`
+    generates `dist/app` and `dist/demo`
 
-    build and watch the feature:
+    build and watch the app:
     ```
     yarn build.watch
     ```
@@ -74,11 +74,11 @@ That said I think this is a good stack that should allow to build simple or comp
     yarn build.demo
     ```
 
-    You then need to run `http-serve dist/demo` or `http-serve dist/feature` to serve any of the builds.
+    You then need to run `http-serve dist/demo` or `http-serve dist/app` to serve any of the builds.
 
     Why not use the webpack server? Because we should test releasable code and avoid the build-test-rebuild anti-pattern
 
-    Note: the plan is to eventually share a single build of common code between feature and demo.
+    Note: the plan is to eventually share a single build of common code between app and demo.
 
 ## Reference
 * https://www.typescriptlang.org/ - TypeScript
@@ -100,4 +100,4 @@ That said I think this is a good stack that should allow to build simple or comp
 - [x] add unit and e2e testing support
 - [x] clean-up sample code (apply tslint fixes)
 - [ ] problem with uglify and stacktraces in dev mode.
-- [ ] setup webpack so that components get built only once so they can be shared between the feature and the demo.
+- [ ] setup webpack so that components get built only once so they can be shared between the app and the demo.
