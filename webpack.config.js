@@ -1,8 +1,7 @@
 module.exports = (env, argv) => {
 
-  if (argv.demo) {
-    console.log("DEMO");
-    return require('./webpack/demo.config')(env, argv, __dirname);
+  if (argv.workshop) {
+    return require('./webpack/workshop.config')(env, argv, __dirname);
   }
 
   let config = require('./webpack/base.config')(env, argv, __dirname);

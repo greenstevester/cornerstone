@@ -2,30 +2,38 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
-
 
 module.exports = function configure(env, argv, wdir) {
   wdir = `${wdir}/`;
 
   return {
     devtool: 'source-map',
+    entry: [
+      `${wdir}src/workshop/index.ts`,
+      `${wdir}src/cornerstone/workshop/index.scss`,
+    ],
+    output: {
+      path: path.join(wdir, 'dist/workshop'),
+      filename: '[name].[hash].js',
+      chunkFilename: '[name].[chunkhash].js',
+    },
     resolve: {
       extensions: ['.js', '.ts'],
     },
+
     resolveLoader: {
-      modules: [ 'node_modules' ],
-      extensions: [ '.js', '.json' ],
-      mainFields: [ 'loader', 'main' ]
+      modules: ['node_modules'],
+      extensions: ['.js', '.json'],
+      mainFields: ['loader', 'main'],
     },
 
     module: {
       rules: [
         {
           test: /\.ts$/,
-          include: path.join(wdir, 'src'),
+          include: wdir,
           loader: 'ts-loader',
         },
         {
@@ -73,17 +81,20 @@ module.exports = function configure(env, argv, wdir) {
     },
 
     devServer: {
-      contentBase: `${wdir}dist`,
+      contentBase: `${wdir}dist/workshop`,
+      port: 9000,
     },
     plugins: [
-      new CleanWebpackPlugin([`${wdir}dist/app`], {allowExternal: true}),
-      new HtmlWebpackPlugin({template: `${wdir}src/app/index.html`, title: 'Progressive Web Application'}),
-      new CopyWebpackPlugin([
-                              {from: `${wdir}src/app/images`, to: 'images'},
-                            ]),
-      new WebpackDeepScopeAnalysisPlugin(),
+      new CleanWebpackPlugin([`${wdir}dist/workshop/`], {allowExternal: true}),
+      new HtmlWebpackPlugin({template: `${wdir}src/cornerstone/workshop/index.html`, title: 'workshop'}),
+      new MiniCssExtractPlugin({
+                                 // Options similar to the same options in webpackOptions.output
+                                 // both options are optional
+                                 filename: '[name].[hash].css',
+                                 chunkFilename: '[id].[hash].css',
+                               }),
     ],
-    optimization : {
+    optimization: {
       'concatenateModules': false,
       minimizer: [
         new TerserPlugin({
@@ -91,13 +102,13 @@ module.exports = function configure(env, argv, wdir) {
                            sourceMap: true,
                            terserOptions: {
                              ecma: 6,
-                           }
+                           },
                          }),
       ],
       splitChunks: {
         // include all types of chunks
-        chunks: 'all'
-      }
+        chunks: 'all',
+      },
     },
     performance: {
       hints: 'error',

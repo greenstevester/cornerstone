@@ -1,0 +1,17 @@
+{
+    "browsers": "chrome:headless",
+    "src": ["test/integration/**/*.ts", "test/integration/**/*.js"],
+    "reporter": [
+        {
+            "name": "spec"
+        },
+        {
+            "name": "json",
+            "output": "reports/integration-report.json"
+        }
+    ],
+    "screenshotPath": "reports/screenshots/",
+    "takeScreenshotsOnFails": true,
+    "pageLoadTimeout": 1000
+
+}

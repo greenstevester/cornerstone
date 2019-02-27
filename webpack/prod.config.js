@@ -6,8 +6,9 @@ module.exports = function configure(env, arg, wdir, config) {
   wdir = `${wdir}/`;
 
   config.entry = [
-    `${wdir}src/index.ts`,
-    `${wdir}src/index.scss`];
+    `${wdir}src/app/index.ts`,
+    `${wdir}src/app/index.scss`,
+  ];
 
   config.output = {
     path: path.join(wdir, 'dist/app'),
@@ -24,17 +25,11 @@ module.exports = function configure(env, arg, wdir, config) {
                                }),
   );
 
-  // config.plugins.push(
-  //     new WorkboxPlugin.GenerateSW({
-  //                                    importWorkboxFrom: 'cdn',
-                                     // these options encourage the ServiceWorkers to get in there fast
-                                     // and not allow any straggling "old" SWs to hang around
-                                     // clientsClaim: true,
-                                     // skipWaiting: true,
-                                   // }),
-  // );
-
-
+  config.devServer = {
+    contentBase: path.join(__dirname, 'dist/app'),
+    compress: true,
+    port: 9090,
+  };
 
   return config;
 };
