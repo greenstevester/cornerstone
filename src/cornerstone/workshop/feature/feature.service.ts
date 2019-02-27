@@ -1,9 +1,9 @@
 import { LitElement } from "lit-element";
 import { html, TemplateResult } from "lit-html";
 import { FeatureProperties } from ".";
+import { Features } from "..";
 import { Router } from "../../shared/Router";
-import { ShowroomExample } from "../components/stn-shrm-example";
-import { Features } from "../demo";
+import { WorkshopExample } from "../components/ws-example";
 
 export class FeatureService {
   private features: Features;
@@ -14,13 +14,13 @@ export class FeatureService {
   constructor(features: Features, parent: LitElement) {
     this.features = features;
     this.router = new Router(
-      (p, r) => {
+      () => {
         this.chosen = '';
         if (this.callback) this.callback(name)
       },
       parent);
     for (const name of this.features.getAll()) {
-      this.router.add(name, (p, r) => {
+      this.router.add(name, () => {
         this.chosen = name;
         if (this.callback) this.callback(name)
       })
@@ -32,7 +32,7 @@ export class FeatureService {
     return this.features.getAll()
   }
 
-  getExampleTemplate(name: string, element: ShowroomExample, service: FeatureService): TemplateResult {
+  getExampleTemplate(name: string, element: WorkshopExample, service: FeatureService): TemplateResult {
     if (name) {
       return this.features.get(name)(element,service)
     }

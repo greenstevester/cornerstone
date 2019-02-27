@@ -1,27 +1,27 @@
-# Feature Demo's
+# WORKSHOP
 
 ## Usage
 
 ### Add a feature
 
-`demo/index.ts` is where setting up the demo. You should add all the features to an instance of `Features`:
+`workshop/index.ts` is where setting up the workshop. You should add all the features to an instance of `Features`:
 ```javascript
-  import { Features, startDemo } from "./app/showroom";
+  import { Features,startWorkshop  } from '../src/cornerstone/workshop';
 
   //initialize your feaures
 
-  let features = new Features("Your Project Demo")
+  let features = new Features("Your Project Workshop");
 
   // add featues
 
-  startDemo(features);
+  startWorkshop(features);
 ```
 
 Add a welcome view:
 ```javascript
   // add some welcome page details or instructions
   features.setIntro(
-    'Welcome to the Demo',
+    'Welcome to the Workshop',
     (): TemplateResult => { return html`<!-- Your welcome message -->`}
   );
 ```
@@ -44,18 +44,18 @@ When things get even more complex you will need to bind properties to the render
 ```javascript
     features.add( 'feature two',
       (element): TemplateResult => {
-        return html`Hello ${element.get('myPropo')}!`
+        return html`Hello ${element.get('myProp')}!`
       },
       (element):Map<string, any> => {
          const props = new Map<string, any>()
-         return props.set('myProp','Demo')
+         return props.set('myProp','Workshop')
       }
       )
 ```
 
 
 
-Complex feature demos can be factored out into a separate module. You can share states between the template and the properties there.
+Complex workshop features can be factored out into a separate module. You can share states between the template and the properties there.
 ```javascript
     import { module3 } from "./features/module3";
     import { module4 } from "./features/module4";

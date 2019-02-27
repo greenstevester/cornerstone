@@ -1,11 +1,11 @@
 import { html, TemplateResult } from "lit-html";
-import { ShowroomExample } from "../../cornerstone/showroom/components/stn-shrm-example";
-import { FeatureService } from "../../cornerstone/showroom/feature/feature.service";
+import { WorkshopExample } from "../../cornerstone/workshop/components/ws-example";
+import { FeatureService } from "../../cornerstone/workshop/feature/feature.service";
 
 
 export const RouterFeature = {template: template, properties: properties};
 
-function template(element: ShowroomExample, srv: FeatureService): TemplateResult {
+function template(element: WorkshopExample, srv: FeatureService): TemplateResult {
   function jumpTo(route: string) {
     srv.routeTo(route)
   }
@@ -20,7 +20,7 @@ function template(element: ShowroomExample, srv: FeatureService): TemplateResult
       `
 }
 
-function properties(element: ShowroomExample, srv: FeatureService): Map<string, any> {
+function properties(element: WorkshopExample, srv: FeatureService): Map<string, any> {
   let properties = new Map<string, any>();
 
   properties.set('msg', "N/A");

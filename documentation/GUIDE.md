@@ -12,7 +12,7 @@
 
 ### Add Facades
 
-## The Workshop (rename showroom)
+## The Workshop
 
 ### To Create
 

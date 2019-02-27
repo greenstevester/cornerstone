@@ -4,12 +4,13 @@
     "description"    : "essential seed project for modern JS",
     "main"           : "src/app/index.ts",
     "scripts"        : {
-        "test"            : "jest --coverage --watch",
+        "test"            : "jest --coverage --watchAll",
         "test.integration": "testcafe --live",
         "lint"            : "tslint --project .",
-        "build"           : "webpack --mode production; webpack --mode production --demo",
-        "build.watch"     : "webpack-dev-server --mode production",
-        "build.demo"      : "webpack-dev-server --mode production --demo",
+        "build.app"       : "webpack --mode production",
+        "build.workshop"  : "webpack --mode production --workshop",
+        "serve.app"       : "webpack-dev-server --mode production",
+        "serve.workshop"  : "webpack-dev-server --mode production --workshop",
         "storybook"       : "start-storybook -p 6006",
         "build-storybook" : "build-storybook"
     },

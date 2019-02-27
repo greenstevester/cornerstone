@@ -5,7 +5,7 @@ A webapack-based seed project that's a good foundation for modern JS/TS web appl
 If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md)
 
 ## Guides
-* [Creating a demo](documentation/DEMO.md)
+* [Creating a workshop](documentation/WORKSHOP.md)
 
 ## Foundation Features
 
@@ -19,11 +19,11 @@ If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md
 Most of the features in this seed project are optional. You should also be able to easily add dependencies that are compatible with ES6 and TypeScript.
 
 * lit-html and lit-element - Polymer core libraries to build true web components
-    * Demo setup depends on these two libraries
+    * Workshop setup depends on these two libraries
 * Some custom code
   * to extend lit-element
   * to provide a simple router
-* Feature Demo Environemnt - Isolate features for the sake of documenting, testing, and showcasing. Includes an easy to bootstrap mechanism
+* Workshop Environment - Isolate features for the sake of documenting, testing, and showcasing. Includes an easy to bootstrap mechanism
 * Jest - for unit testing
 * TestCafe - for integration and end-to-end testing
 * Milligram - a tiny css library (<2k) that you can enhance or replace when/if you find you need something more.
@@ -50,7 +50,7 @@ That said I think this is a good stack that should allow to build simple or comp
     ```
     yarn test
     ```
-* _integration tests_ - You will need to run either the site or the demo(see below). Then run the testcafe integration tests. These should be split into web-layer integration and end-to-end tests with a full back-end.
+* _integration tests_ - You will need to run either the app or the workshop(see below). Then run the testcafe integration tests. These should be split into web-layer integration and end-to-end tests with a full back-end.
     ```
     # not yet implemented
     ```
@@ -59,26 +59,27 @@ That said I think this is a good stack that should allow to build simple or comp
     yarn lint
     ```
 * _building and watching_ - There are variations here for different purposes... mostly obvious
-    build the app and the demo
+    build the app and the workshop
     ```
     yarn build
     ```
-    generates `dist/app` and `dist/demo`
+    generates `dist/app` and `dist/workshop`
 
     build and watch the app:
     ```
-    yarn build.watch
+    yarn serve.app
     ```
-    build and watch the demo:
+    build and watch the workshop:
     ```
-    yarn build.demo
+    yarn serve.workshop
     ```
 
-    You then need to run `http-serve dist/demo` or `http-serve dist/app` to serve any of the builds.
+<!--TODO: this section is no longer true... although the underlying problem remains -->
+    You then need to run `http-serve dist/workshop` or `http-serve dist/app` to serve any of the builds.
 
     Why not use the webpack server? Because we should test releasable code and avoid the build-test-rebuild anti-pattern
 
-    Note: the plan is to eventually share a single build of common code between app and demo.
+    Note: the plan is to eventually share a single build of common code between app and workshop.
 
 ## Reference
 * https://www.typescriptlang.org/ - TypeScript
@@ -100,4 +101,4 @@ That said I think this is a good stack that should allow to build simple or comp
 - [x] add unit and e2e testing support
 - [x] clean-up sample code (apply tslint fixes)
 - [ ] problem with uglify and stacktraces in dev mode.
-- [ ] setup webpack so that components get built only once so they can be shared between the app and the demo.
+- [ ] setup webpack so that components get built only once so they can be shared between the app and the workshop.

@@ -1,12 +1,11 @@
 import { html, TemplateResult } from "lit-html";
 import { DynamicComponents } from "../../app/components";
-import { ShowroomExample } from "../../cornerstone/showroom/components/stn-shrm-example";
-import { FeatureService } from "../../cornerstone/showroom/feature/feature.service";
+import { WorkshopExample } from "../../cornerstone/workshop/components/ws-example";
 
 
 export const ActionFeature = {template: template, properties: properties};
 
-function template(element: ShowroomExample, srv: FeatureService): TemplateResult {
+function template(element: WorkshopExample): TemplateResult {
   DynamicComponents.await.action();
 
   function select(selection: string) {
@@ -27,7 +26,7 @@ function template(element: ShowroomExample, srv: FeatureService): TemplateResult
 `
 }
 
-function properties(element: ShowroomExample, srv: FeatureService): Map<string, any> {
+function properties(): Map<string, any> {
   let map = new Map<string, any>();
   map.set('selected', '');
   return map;

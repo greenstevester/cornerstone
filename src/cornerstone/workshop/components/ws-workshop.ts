@@ -3,8 +3,8 @@ import { html, TemplateResult } from "lit-html";
 import { Facade } from "../../shared/Facade";
 import { FeatureService } from "../feature/feature.service";
 
-@customElement('stn-showroom')
-export class Showroom extends Facade {
+@customElement('ws-workshop')
+export class Workshop extends Facade {
 
   @property({attribute: false})
   service!: FeatureService;
@@ -17,8 +17,8 @@ export class Showroom extends Facade {
     return html`
 <!--    <div class="container">-->
         <div class="row">
-            <stn-demo-menu id="sidebar-content" class="column-20" .service="${this.service}"></stn-demo-menu>        
-            <stn-demo-example id="main-content" class="column" .service="${this.service}" foo="bar"></stn-demo-example>
+            <ws-menu id="sidebar-content" class="column-20" .service="${this.service}"></ws-menu>        
+            <ws-example id="main-content" class="column" .service="${this.service}" foo="bar"></ws-example>
         </div>
 <!--    </div>-->
     `

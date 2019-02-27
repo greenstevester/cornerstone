@@ -3,8 +3,8 @@ import { Facade } from "../../shared/Facade";
 import { baseComponentCss } from "../../shared/Stone";
 import { FeatureService } from "../feature/feature.service";
 
-@customElement('stn-demo-menu')
-export class Menu extends Facade {
+@customElement('ws-menu')
+export class WorkshopMenu extends Facade {
 
   static styles = [
     baseComponentCss,

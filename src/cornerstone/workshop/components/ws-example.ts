@@ -2,8 +2,8 @@ import { customElement, html, property, TemplateResult } from "lit-element";
 import { Facade } from "../../shared/Facade";
 import { FeatureService } from "../feature/feature.service";
 
-@customElement('stn-demo-example')
-export class ShowroomExample extends Facade {
+@customElement('ws-example')
+export class WorkshopExample extends Facade {
 
   @property({attribute: false})
   service!: FeatureService;
@@ -44,7 +44,7 @@ export class ShowroomExample extends Facade {
       let template = this.service.getExampleTemplate(this.name, this, this.service);
       if (template.getHTML()) {
         return html`
-          ${ShowroomExample.renderStyles()}
+          ${WorkshopExample.renderStyles()}
           <h3><pre>${this.name}</pre></h3>
           <div class="example">
               ${template}
@@ -53,14 +53,14 @@ export class ShowroomExample extends Facade {
           `
       } else {
         return html`
-          ${ShowroomExample.renderStyles()}
+          ${WorkshopExample.renderStyles()}
           <h2><pre>${this.name}</pre></h2>
           ${template}
           `
       }
     } else {
       return html`
-        ${ShowroomExample.renderStyles()}
+        ${WorkshopExample.renderStyles()}
         <div class="welcome">
             <h1>${this.service.getWelcome()}</h1>
             ${this.service.getWelcomeContent()}

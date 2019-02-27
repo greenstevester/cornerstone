@@ -7,7 +7,8 @@ module.exports = function configure(env, arg, wdir, config) {
 
   config.entry = [
     `${wdir}src/app/index.ts`,
-    `${wdir}src/app/index.scss`];
+    `${wdir}src/app/index.scss`,
+  ];
 
   config.output = {
     path: path.join(wdir, 'dist/app'),
@@ -27,7 +28,7 @@ module.exports = function configure(env, arg, wdir, config) {
   config.devServer = {
     contentBase: path.join(__dirname, 'dist/app'),
     compress: true,
-    port: 9000,
+    port: 9090,
   };
 
   return config;

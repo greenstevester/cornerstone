@@ -1,29 +1,29 @@
 import { html } from "lit-element";
 import { render, TemplateResult } from "lit-html";
-import { ShowroomExample } from "../components/stn-shrm-example";
-import { Menu } from "../components/stn-shrm-menu";
-import { Showroom } from "../components/stn-shrm-showroom";
-import { FeatureProperties, FeatureTemplate } from "../feature";
-import { FeatureService } from "../feature/feature.service";
+import { WorkshopExample } from "./components/ws-example";
+import { WorkshopMenu } from "./components/ws-menu";
+import { Workshop } from "./components/ws-workshop";
+import { FeatureProperties, FeatureTemplate } from "./feature";
+import { FeatureService } from "./feature/feature.service";
 
-export function startDemo(features: Features) {
+export function startWorkshop(features: Features) {
 
-  //init demo service
-  Menu;
-  Showroom;
-  ShowroomExample;
+  //init workshop components
+  WorkshopMenu;
+  Workshop;
+  WorkshopExample;
 
   // @ts-ignore
   const service = new FeatureService(features, null);
 
   //init feature template
 
-  const showroomApp = (service: FeatureService) => {
-    return html`<stn-showroom  .service=${service} ></stn-showroom>`;
+  const workshop = (service: FeatureService) => {
+    return html`<ws-workshop  .service=${service} ></ws-workshop>`;
   };
 
   //start feature
-  render(showroomApp(service), document.body);
+  render(workshop(service), document.body);
 }
 
 const emptyTemplateFn = function():TemplateResult  {return html``};

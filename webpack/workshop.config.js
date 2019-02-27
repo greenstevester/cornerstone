@@ -11,11 +11,11 @@ module.exports = function configure(env, argv, wdir) {
   return {
     devtool: 'source-map',
     entry: [
-      `${wdir}src/app-showroom/index.ts`,
-      `${wdir}src/cornerstone/showroom/index.scss`,
+      `${wdir}src/workshop/index.ts`,
+      `${wdir}src/cornerstone/workshop/index.scss`,
     ],
     output: {
-      path: path.join(wdir, 'dist/demo'),
+      path: path.join(wdir, 'dist/workshop'),
       filename: '[name].[hash].js',
       chunkFilename: '[name].[chunkhash].js',
     },
@@ -81,14 +81,12 @@ module.exports = function configure(env, argv, wdir) {
     },
 
     devServer: {
-      contentBase: `${wdir}dist/demo`,
+      contentBase: `${wdir}dist/workshop`,
+      port: 9000,
     },
     plugins: [
-      new CleanWebpackPlugin([`${wdir}dist/demo/`], {allowExternal: true}),
-      new HtmlWebpackPlugin({template: `${wdir}src/cornerstone/showroom/index.html`, title: 'Demo'}),
-      /*new CopyWebpackPlugin([
-       {from: `${wdir}src/images`, to: 'images'},
-       ]),*/
+      new CleanWebpackPlugin([`${wdir}dist/workshop/`], {allowExternal: true}),
+      new HtmlWebpackPlugin({template: `${wdir}src/cornerstone/workshop/index.html`, title: 'workshop'}),
       new MiniCssExtractPlugin({
                                  // Options similar to the same options in webpackOptions.output
                                  // both options are optional
