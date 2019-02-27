@@ -16,15 +16,23 @@ let action = async function () {
   });
 };
 
+let markdown = async function () {
+  await import(/* webpackChunkName: "stn-markdown" */'./stn-markdown').then((scope) => {
+    scope.define()
+  });
+};
+
 export const DynamicComponents = {
   await: {
     all: function () {
       card();
       menu();
-      action()
+      action();
+      markdown();
     },
     card: card,
     menu: menu,
-    action: action
+    action: action,
+    markdown: markdown
   }
 };

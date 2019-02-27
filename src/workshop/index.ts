@@ -10,9 +10,8 @@ startWorkshop(initExamples());
 
 //create features
 function initExamples() {
-  DynamicComponents.await.card();
 
-  let features = new Features("Features");
+  let features = new Features("Workshop");
 
   features.setIntro('Welcome to the Cornerstone Workshop ', welcome);
 
@@ -26,10 +25,14 @@ function initExamples() {
               <stn-card title="The Second" class="column" height="35rem"> this is content </stn-card>
               <stn-card title="The Third"  class="column" height="35rem"> this is content </stn-card>
             </div>
-`
+            `
     })
     .add('stn-action', ActionFeature.template, ActionFeature.properties)
     .add('router', RouterFeature.template, RouterFeature.properties)
+    .add('stn-markdown', (): TemplateResult => {
+      DynamicComponents.await.markdown();
+      return html`<stn-markdown></stn-markdown>`
+    })
 
   ;
   return features;

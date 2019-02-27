@@ -15,7 +15,6 @@ module.exports = function configure(env, argv, wdir) {
     resolve: {
       extensions: ['.js', '.ts'],
     },
-
     resolveLoader: {
       modules: [ 'node_modules' ],
       extensions: [ '.js', '.json' ],
@@ -99,6 +98,11 @@ module.exports = function configure(env, argv, wdir) {
         // include all types of chunks
         chunks: 'all'
       }
-    }
+    },
+    performance: {
+      hints: 'error',
+      maxEntrypointSize: 102400,
+      maxAssetSize: 2048000,
+    },
   };
 };
