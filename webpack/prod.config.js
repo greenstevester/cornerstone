@@ -24,5 +24,11 @@ module.exports = function configure(env, arg, wdir, config) {
                                }),
   );
 
+  config.devServer = {
+    contentBase: path.join(__dirname, 'dist/app'),
+    compress: true,
+    port: 9000,
+  };
+
   return config;
 };
