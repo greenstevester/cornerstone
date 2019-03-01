@@ -112,7 +112,7 @@ module.exports = function configure(env, argv, wdir) {
     },
     performance: {
       hints: 'error',
-      maxEntrypointSize: 102400,
+      maxEntrypointSize: 250400,
       maxAssetSize: 2048000,
     },
   };

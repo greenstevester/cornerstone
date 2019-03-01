@@ -17,7 +17,11 @@ export class WorkshopMenu extends Facade {
     const items = [];
 
     for (const name of this.service.getFeatureNames()) {
-      items.push(html`<li><button @click="${() => this.choose(name)}">${name}</button></li>`);
+      if (this.service.isSection(name)) {
+        items.push(html`<li style="font-style: italic"><h5>${name}</h5> </li>`);
+      } else {
+        items.push(html`<li><button @click="${() => this.choose(name)}">${name}</button></li>`);
+      }
     }
 
     return html`

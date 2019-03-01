@@ -1,5 +1,5 @@
 import { html } from "lit-element";
-import { render, TemplateResult } from "lit-html";
+import { render } from "lit-html";
 import { WorkshopExample } from "./components/ws-example";
 import { WorkshopMenu } from "./components/ws-menu";
 import { Workshop } from "./components/ws-workshop";
@@ -26,12 +26,11 @@ export function startWorkshop(features: Features) {
   render(workshop(service), document.body);
 }
 
-const emptyTemplateFn = function():TemplateResult  {return html``};
 const emptyPropFn = function(): Map<string, any> {return new Map<string, any>()};
 
 export class Features {
 
-  private features: Map<string, FeatureTemplate> = new Map();
+  private features: Map<string, FeatureTemplate | null | undefined> = new Map();
   private properties: Map<string, FeatureProperties> = new Map();
   private welcome: string = '';
   private welcomeContent: () => void = () => {
@@ -45,7 +44,7 @@ export class Features {
       example?: FeatureTemplate,
       properties?: FeatureProperties) {
 
-    example = example || emptyTemplateFn;
+    // example = example || emptyTemplateFn;
     properties = properties || emptyPropFn;
 
     this.features.set(name, example);
@@ -61,13 +60,8 @@ export class Features {
     return this.features.keys()
   }
 
-  get(name: string): FeatureTemplate {
-    let fn = this.features.get(name);
-    if (fn != null) {
-      return fn;
-    } else {
-      throw Error(`no function found for: ${name}`)
-    }
+  get(name: string): FeatureTemplate | null | undefined {
+    return this.features.get(name);
   }
 
   setIntro(welcomeMessage: string, content: () => void) {

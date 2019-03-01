@@ -23,12 +23,16 @@ export class CardElement extends Stone {
 
   protected render(): any {
     return html`
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <style>
            div {
             height: ${this.height};
            }
         </style>
         <div>
+        <span style="font-size: 48px; color: Dodgerblue;">
+            <i class="fas fa-igloo"></i>
+        </span>
             <img src="${this.imageUrl}"/>
             <h2>${this.title}</h2>
             <stn-card-body>

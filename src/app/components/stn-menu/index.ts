@@ -29,7 +29,7 @@ export class Menu extends Facade {
   }
 
   private isSelected(hash: string) {
-    return Router.currentBrowserRoute() === hash
+    return Router.currentRoute() === hash
   }
 }
 

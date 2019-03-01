@@ -1,7 +1,6 @@
-import * as hljs from "highlight.js";
 import { customElement, html, property } from "lit-element";
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import marked from "marked";
+import showdown from "showdown";
 import { Stone } from "../../../cornerstone/shared/Stone";
 
 
@@ -10,11 +9,12 @@ export class Markdown extends Stone {
 
   @property({attribute: false})
   private readonly markdown?: string;
+  private converter: showdown.Converter;
 
   constructor() {
     super();
-    marked.setOptions(StoryConfig.create());
-    this.markdown = marked(`
+    this.converter = new showdown.Converter();
+    this.markdown = this.converter.makeHtml(`
 # Title
 
 bla bla bla
@@ -34,21 +34,3 @@ export const define = function () {
   let markdown = Markdown;
 };
 
-class StoryConfig {
-
-  static baseMarkedConfig = {
-    headerPrefix: 'mkdn',
-    highlight(code: any) {
-      return hljs.highlightAuto(code).value
-    },
-    silent: true
-  };
-
-  static create() {
-    return Object.assign({}, StoryConfig.baseMarkedConfig);
-  }
-
-  static debug() {
-    return Object.assign(StoryConfig.create(), {silent: false});
-  }
-}

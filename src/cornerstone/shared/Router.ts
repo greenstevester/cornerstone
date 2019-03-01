@@ -1,32 +1,12 @@
 import { LitElement } from "lit-element";
 
-/**
- * Proxy implementation of Dom to make testing possible
- */
-export const proxy = new (class DomDelegate {
-  window: any;
-  document: any;
-
-  constructor() {
-    try {
-      this.window = window;
-    } catch (e) {
-      this.window = {location: {hash: ''}, onhashchange: (event: HashChangeEvent) => {}}
-    }
-    try {
-      this.document = document;
-    } catch (e) {
-      this.document = {title: ''}
-    }
-  }
-})();
 
 /**
  * Action Interface
  */
 export interface RouteAction {
   (router: Router, parent?: LitElement | null): void
-};
+}
 
 /**
  * Simple Router that provides a basic mapping of a route(string) to an action(function)
@@ -45,7 +25,7 @@ export class Router {
 
   constructor(private baseFn: RouteAction = () => {}, parent: LitElement | null = null) {
     this.parent = parent;
-    proxy.window.onhashchange = (event: HashChangeEvent) => {
+    window.onhashchange = (event: HashChangeEvent) => {
       let url = event.newURL;
       let tokens = url.split('#');
       let hash = tokens[1];
@@ -55,10 +35,17 @@ export class Router {
   }
 
   /**
-   * Get the current urls hash (exluding the '#')
+   * Get the current urls hash (exluding the '#'). Return '' if current url contains a '#' with nothing after or no '#' at all
    */
-  static getUrlHash() {
-    let hash = proxy.window.location.hash;
+  static currentHash() {
+    return this.browserHashToHash(window.location.hash);
+  }
+
+  public static currentRoute() {
+    return this.toRoute(Router.currentHash());
+  }
+
+  private static browserHashToHash(hash: string) {
     if (hash) {
       return hash.replace(/#/g, '')
     } else {
@@ -66,50 +53,48 @@ export class Router {
     }
   }
 
-  public static currentBrowserRoute() {
-    return Router.getUrlHash();
+  private static toRoute(hash: string) {
+    return hash.replace(/#/g, '').replace(/_/g, ' ');
+  }
+
+  private static toHash(route: string) {
+    return route.replace(/ /g, '_');
   }
 
   /**
    * Add a route
-   * @param {string} name corresponding to hash. Supports sub-paths.
+   * @param {string} route corresponding to route. Supports sub-paths.
    * @param {RouteAction} action function called when route called
    */
-  add(hash: string, action: RouteAction): Router {
-    this.routes.set(hash, action);
+  add(route: string, action: RouteAction): Router {
+    this.routes.set(route, action);
     return this;
   }
 
-  private dispatch(hash: string, parent: LitElement | null) {
-    let fn = this.routes.get(hash);
-    if (fn) fn(this, parent);
-  }
-
   /**
-   * Go to a route
-   * @param {string} hash route to go to. `#` will be stripped if provided.
+   * Go to a routeOrHash
+   * @param {string} routeOrHash routeOrHash to go to. `#` will be stripped if provided.
    */
-  goto(hash: string | null) {
-    if (hash === null) hash = '';
+  goto(routeOrHash: string | null) {
+    if (routeOrHash === null) routeOrHash = '';
 
-    if (hash.indexOf('#') > -1) {
-      hash = hash.replace(/#/g, '');
-    }
+    let hash = Router.toHash(routeOrHash);
+    let route = Router.toRoute(routeOrHash);
+
     if (hash !== this.lastHash) {
-      let window = proxy.window;
-      let document = proxy.document;
-      if (hash) {
+
+      if (route) {
         window.location.hash = hash;
-        document.title = `${document.title.split(' - ')[0]} - ${hash}`;
-        if (hash.indexOf('/') > 0) {
-          let subroutes = hash.split('/');
+        document.title = `${document.title.split(' - ')[0]} - ${route}`;
+        if (route.indexOf('/') > 0) {
+          let subroutes = route.split('/');
           let routeFragment = '';
           subroutes.map(sr => {
             routeFragment = routeFragment ? `${routeFragment}/${sr}` : sr;
             this.dispatch(routeFragment, this.parent);
           })
         } else {
-          this.dispatch(hash, this.parent);
+          this.dispatch(route, this.parent);
         }
       } else {
         window.location.hash = '';
@@ -118,6 +103,11 @@ export class Router {
       }
       this.lastHash = hash;
     }
+  }
+
+  private dispatch(route: string, parent: LitElement | null) {
+    let fn = this.routes.get(route);
+    if (fn) fn(this, parent);
   }
 }
 

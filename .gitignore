@@ -137,4 +137,4 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 reports
 
-.nyc_output
+coverage/**/*

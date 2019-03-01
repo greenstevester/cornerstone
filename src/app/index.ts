@@ -21,9 +21,9 @@ export class CornerstoneApp extends SuperStructure {
       return this.appTemplate = html`${CornerstoneApp.menu(r)} ${home} `;
     });
 
-    this.addRoute('about', (r) => { return this.appTemplate = html`${CornerstoneApp.menu(r)} ${about} `;});
-    this.addRoute('stack', (r) => { return this.appTemplate = html`${CornerstoneApp.menu(r)} ${stack} `;});
-    this.addRoute('story', (r) => { return this.appTemplate = html`${CornerstoneApp.menu(r)} ${story} `;});
+    this.addRoute('about', (r) => { this.appTemplate = html`${CornerstoneApp.menu(r)} ${about} `;});
+    this.addRoute('stack', (r) => { this.appTemplate = html`${CornerstoneApp.menu(r)} ${stack} `;});
+    this.addRoute('story', (r) => { this.appTemplate = html`${CornerstoneApp.menu(r)} ${story} `;});
   }
 
   static menu(router: Router) {

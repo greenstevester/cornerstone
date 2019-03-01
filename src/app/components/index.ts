@@ -22,6 +22,12 @@ let markdown = async function () {
   });
 };
 
+let hello = async function () {
+  await import(/* webpackChunkName: "stn-hello" */ './stn-hello').then((scope) => {
+    scope.define()
+  });
+};
+
 export const DynamicComponents = {
   await: {
     all: function () {
@@ -29,10 +35,12 @@ export const DynamicComponents = {
       menu();
       action();
       markdown();
+      hello();
     },
     card: card,
     menu: menu,
     action: action,
-    markdown: markdown
+    markdown: markdown,
+    hello: hello
   }
 };

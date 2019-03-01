@@ -1,9 +1,9 @@
-import { proxy, Router } from "../../../../src/cornerstone/shared/Router";
+import { Router } from "../../../../src/cornerstone/shared/Router";
 
 describe('Router', () => {
   it('goes to main route on \'\'', done => {
     const router = new Router((r) => {
-      expect(Router.currentBrowserRoute()).toBe('');
+      expect(Router.currentRoute()).toBe('');
       expect(r).not.toBeNull();
       done();
     });
@@ -33,11 +33,11 @@ describe('Router', () => {
     const router = new Router();
 
     router.add('a', () => {
-      expect(Router.currentBrowserRoute()).toBe('a');
+      expect(Router.currentRoute()).toBe('a');
       done();
     });
     router.add('b', () => {
-      expect(Router.currentBrowserRoute()).toBe('b');
+      expect(Router.currentRoute()).toBe('b');
       done();
     });
 
@@ -51,39 +51,52 @@ describe('Router', () => {
     let aCalledFirst = false;
     let a1CalledSecond = false;
     router.add('a', () => {
-      expect(Router.currentBrowserRoute()).toBe('a/1/x');
+      expect(Router.currentRoute()).toBe('a/1/x');
       expect(a1CalledSecond).toBeFalsy();
       aCalledFirst = true;
     });
     router.add('a/1', () => {
-      expect(Router.currentBrowserRoute()).toBe('a/1/x');
+      expect(Router.currentRoute()).toBe('a/1/x');
       expect(aCalledFirst).toBeTruthy();
       a1CalledSecond = true;
     });
     router.add('a/1/x', () => {
       expect(a1CalledSecond).toBeTruthy();
-      expect(Router.currentBrowserRoute()).toBe('a/1/x');
+      expect(Router.currentRoute()).toBe('a/1/x');
       done()
     });
 
     router.goto('a/1/x')
-  })
+  });
 
   it('should trigger route on hash changed', done => {
     const router = new Router();
 
     router.add('a', () => {
-      expect(Router.currentBrowserRoute()).toBe('a');
+      expect(Router.currentRoute()).toBe('a');
       done();
     });
 
-    proxy.window.onhashchange(new HashChangeEvent('event', new class implements HashChangeEventInit {
+    // @ts-ignore
+    window.onhashchange(new HashChangeEvent('event', new class implements HashChangeEventInit {
       bubbles: boolean = true;
       cancelable: boolean = true;
       composed: boolean = true;
       newURL: string = 'http://someplace/#a';
       oldURL: string = 'http://someplace/';
     }))
+  });
+
+  it('should handle routes with spaces', () => {
+    const router = new Router(() => {});
+
+    router.add('Complex Route Name', () => {});
+
+    router.goto('Complex Route Name');
+
+    expect(Router.currentHash()).toBe('Complex_Route_Name');
+    expect(Router.currentRoute()).toBe('Complex Route Name');
+
   })
 
 });

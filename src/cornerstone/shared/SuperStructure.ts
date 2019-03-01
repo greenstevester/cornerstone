@@ -69,6 +69,6 @@ export class SuperStructure extends LitElement {
    * Initialize routing based on browser's hash. If it is empty or <code>#</code> then the routing will go to the default route
    */
   protected gotoInitialRoute() {
-    if (this.router) { this.router.goto(Router.currentBrowserRoute())}
+    if (this.router) { this.router.goto(Router.currentRoute())}
   }
 }

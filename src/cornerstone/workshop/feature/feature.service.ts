@@ -34,7 +34,7 @@ export class FeatureService {
 
   getExampleTemplate(name: string, element: WorkshopExample, service: FeatureService): TemplateResult {
     if (name) {
-      return this.features.get(name)(element,service)
+      return this.features.get(name)!!(element, service)
     }
     return html``
   }
@@ -74,6 +74,10 @@ export class FeatureService {
   }
 
   routeToHash() {
-    this.router.goto(Router.currentBrowserRoute());
+    this.router.goto(Router.currentRoute());
+  }
+
+  isSection(name: string): boolean {
+    return this.features.get(name) == null || this.features.get(name) == undefined;
   }
 }

@@ -1,6 +1,6 @@
 # Cornerstone
 
-A webapack-based seed project that's a good foundation for modern JS/TS web applications. An attempt to make web development productivd without the lock-in of Big Frameworks!
+A webapack-based seed project that's a good starting place for modern JS/TS web applications. An attempt to make web development productive without the lock-in of Big Frameworks and multiple cli's!
 
 If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md)
 
@@ -100,5 +100,6 @@ That said I think this is a good stack that should allow to build simple or comp
 - [ ] finish WPA support (pulled out for now)
 - [x] add unit and e2e testing support
 - [x] clean-up sample code (apply tslint fixes)
-- [ ] problem with uglify and stacktraces in dev mode.
-- [ ] setup webpack so that components get built only once so they can be shared between the app and the workshop.
+ [ ] Build SPA or component lib or hybrid with a single webpack setup
+- [ ] Build workshop and app with a single webpack setup
+- [ ] Find some way to share services... thinking that there should be some event-based approach
