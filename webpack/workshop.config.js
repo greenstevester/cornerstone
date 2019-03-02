@@ -12,7 +12,7 @@ module.exports = function configure(env, argv, wdir) {
     devtool: 'source-map',
     entry: [
       `${wdir}src/workshop/index.ts`,
-      `${wdir}src/cornerstone/workshop/index.scss`,
+      `${wdir}src/cornerstone/workshop/index.css`,
     ],
     output: {
       path: path.join(wdir, 'dist/workshop'),
@@ -37,16 +37,11 @@ module.exports = function configure(env, argv, wdir) {
           loader: 'ts-loader',
         },
         {
-          test: /\.scss$/,
-          use: [
-            {loader: MiniCssExtractPlugin.loader},
-            {
-              loader: 'css-loader',
-              options: {importLoaders: 2},
-            },
-            {loader: 'postcss-loader'},
-          ],
+          test: /\.css$/,
+          use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader'],
         },
+        {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader'},
+        {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader'},
         {
           test: /\.(gif|png|jpe?g|svg)$/i,
           use: [

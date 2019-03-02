@@ -23,8 +23,8 @@ let markdown = async function () {
 };
 
 let hello = async function () {
-  await import(/* webpackChunkName: "stn-hello" */ './stn-hello').then((scope) => {
-    scope.define()
+  await import(/* webpackChunkName: "examples" */ './examples').then((scope) => {
+    scope.moduleEntryPoints
   });
 };
 

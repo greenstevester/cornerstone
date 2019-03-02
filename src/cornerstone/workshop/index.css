@@ -1,4 +1,7 @@
 @import "../../../node_modules/milligram/dist/milligram.css";
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+
 @import "../../theme.css";
 
 html, body {

@@ -2,12 +2,14 @@ import { customElement, html, property } from "lit-element";
 import { Stone } from "../../../cornerstone/shared/Stone";
 
 @customElement('stn-hello')
-export class HelloApp extends Stone {
+export class HelloWorld extends Stone {
 
   @property()
   type: "friendly" | "polite" = "friendly";
 
-  constructor() {super();}
+  constructor() {
+    super();
+  }
 
   render() {
     return html`
@@ -16,6 +18,3 @@ export class HelloApp extends Stone {
   }
 }
 
-export const define = function () {
-  let element = HelloApp
-};

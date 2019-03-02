@@ -103,3 +103,4 @@ That said I think this is a good stack that should allow to build simple or comp
  [ ] Build SPA or component lib or hybrid with a single webpack setup
 - [ ] Build workshop and app with a single webpack setup
 - [ ] Find some way to share services... thinking that there should be some event-based approach
+- [ ] replace 3-based routing with full use of history api https://computerrock.com/blog/html5-changing-the-browser-url-without-refreshing-page/

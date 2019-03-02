@@ -7,7 +7,7 @@ module.exports = function configure(env, arg, wdir, config) {
 
   config.entry = [
     `${wdir}src/app/index.ts`,
-    `${wdir}src/app/index.scss`,
+    `${wdir}src/app/index.css`,
   ];
 
   config.output = {
