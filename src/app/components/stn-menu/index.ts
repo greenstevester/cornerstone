@@ -14,11 +14,39 @@ export class Menu extends Facade {
 
   protected render(): TemplateResult | void {
     return html`
+            <style>
+                :host{
+                    box-sizing: content-box;
+                }
+                stn-action{
+                   font-size: 2rem;
+                }
+                .row {
+                    /*padding: 0;*/
+                    /*margin:0;*/
+                }
+                
+                stn-menu .container {
+                  /*margin-bottom: 5rem;*/
+                }
+                
+                .menu {
+                  background: var(--color-secondary-1-5);
+                  padding-top: 2rem;
+                  padding-bottom: 0.3rem;
+                  border-bottom: var(--color-secondary-2-3) solid 0.3rem;
+                }
+            </style>
+            <div class="row menu">
+            <div class="container">
             <div class="row">
-                <stn-action class='column column-10 column-offset-20' @click=${() => this.dispatch('')} ?active="${this.isSelected('')}">Home</stn-action>
+                <div class='column column-10 column-offset-50' >&nbsp;</div>
+                <stn-action class='column column-10' @click=${() => this.dispatch('')} ?active="${this.isSelected('')}">Home</stn-action>
                 <stn-action class='column column-10' @click=${() => this.dispatch('stack')} ?active="${this.isSelected('stack')}">The Stack</stn-action>
                 <stn-action class='column column-10' @click=${() => this.dispatch('story')} ?active="${this.isSelected('story')}">The Story</stn-action>
-                <stn-action class='column' @click=${() => this.dispatch('about')} ?active="${this.isSelected('about')}">About</stn-action>
+                <stn-action class='column column-10' @click=${() => this.dispatch('about')} ?active="${this.isSelected('about')}">About</stn-action>
+            </div>
+            </div>
             </div>
             `;
   }

@@ -11,6 +11,7 @@ body {
   font-family: sans-serif;
   padding-top: 0;
   margin: 0;
+    width: 100%;
 }
 
 h1, h3, h5 {
@@ -92,16 +93,7 @@ button:hover  {
   color: var(--color-complement-2);
 }
 
-stn-menu .container {
-  margin-bottom: 5rem;
-}
 
-stn-menu .row {
-    background: var(--color-secondary-1-5);
-  padding-top: 2rem;
-  padding-bottom: 0.3rem;
-    border-bottom: var(--color-secondary-2-3) solid 0.3rem;
-}
 
 #banner {
     margin-top: 8rem;

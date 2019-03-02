@@ -21,9 +21,9 @@ export class App extends SuperStructure {
       return this.appTemplate = html`${App.menu(r)} <div class="container">${home} ${App.footer()}</div>`;
     });
 
-    this.addRoute('about', (r) => { this.appTemplate = html`${App.menu(r)} <div class="container">${about}  ${App.footer()}</div>`;});
-    this.addRoute('stack', (r) => { this.appTemplate = html`${App.menu(r)}<div class="container"> ${stack}  ${App.footer()}</div>`;});
-    this.addRoute('story', (r) => { this.appTemplate = html`${App.menu(r)} <div class="container">${story}  ${App.footer()}</div>`;});
+    this.addRoute('about', (r) => { this.appTemplate = html`${App.menu(r)} <div class="container"> ${about}  ${App.footer()}</div>`;});
+    this.addRoute('stack', (r) => { this.appTemplate = html`${App.menu(r)} <div class="container"> ${stack}  ${App.footer()}</div>`;});
+    this.addRoute('story', (r) => { this.appTemplate = html`${App.menu(r)} <div class="container"> ${story}  ${App.footer()}</div>`;});
   }
 
   static menu(router: Router) {

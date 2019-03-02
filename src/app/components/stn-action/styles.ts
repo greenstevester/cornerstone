@@ -1,12 +1,13 @@
 import { css } from "lit-element";
 
 export const styles = css`
+                        :host {font-size: 2rem;}
                         button{
                             background: none;
                             border: none;
                             color: var(--white);
                             margin-bottom: .875rem;
-                            font-size: 2rem;
+                            font-size: 1.5rem;
                         }
                         
                         button:hover {
