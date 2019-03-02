@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackDeepScopeAnalysisPlugin = require('webpack-deep-scope-plugin').default;
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
 module.exports = function configure(env, argv, wdir) {
@@ -88,16 +89,18 @@ module.exports = function configure(env, argv, wdir) {
                              ecma: 6,
                            }
                          }),
+        new OptimizeCSSAssetsPlugin({}),
       ],
       splitChunks: {
         // include all types of chunks
         chunks: 'all'
-      }
+      },
+
     },
     performance: {
       hints: 'warning',
-      maxEntrypointSize: 202400,
-      maxAssetSize: 2048000,
+      maxEntrypointSize: 260000,
+      maxAssetSize: 2000000,
     },
   };
 };

@@ -1,0 +1,76 @@
+{
+    "name"           : "small-set",
+    "css_prefix_text": "icon-",
+    "css_use_suffix" : false,
+    "hinting"        : true,
+    "units_per_em"   : 1000,
+    "ascent"         : 850,
+    "glyphs"         : [
+        {
+            "uid" : "0f444c61b0d2c9966016d7ddb12f5837",
+            "css" : "beaker",
+            "code": 61635,
+            "src" : "fontawesome"
+        },
+        {
+            "uid" : "af95ef0ddda80a78828c62d386506433",
+            "css" : "cubes",
+            "code": 61875,
+            "src" : "fontawesome"
+        },
+        {
+            "uid" : "fbede3c5584282a0e9b131926dff71da",
+            "css" : "cube",
+            "code": 61874,
+            "src" : "fontawesome"
+        },
+        {
+            "uid" : "f70af5dd0ecd154b007d980cd011a7f7",
+            "css" : "hourglass-2",
+            "code": 62034,
+            "src" : "fontawesome"
+        },
+        {
+            "uid" : "53ed8570225581269cd7eff5795e8bea",
+            "css" : "emo-unhappy",
+            "code": 59394,
+            "src" : "fontelico"
+        },
+        {
+            "uid" : "c64623255a4a7c72436b199b05296c4f",
+            "css" : "emo-happy",
+            "code": 59392,
+            "src" : "fontelico"
+        },
+        {
+            "uid" : "64f5a50cf7ac972a56a9a511acb5d28e",
+            "css" : "map",
+            "code": 59393,
+            "src" : "entypo"
+        },
+        {
+            "uid" : "tau7t0t38662eqxrb80ozeiase5em2x9",
+            "css" : "thumbs-up",
+            "code": 59395,
+            "src" : "typicons"
+        },
+        {
+            "uid" : "8d2bc2d959a55e76466bbef6e84c8373",
+            "css" : "resize-normal",
+            "code": 59396,
+            "src" : "typicons"
+        },
+        {
+            "uid" : "f1315f7ea135cbea7966cce0e7c10ce0",
+            "css" : "snow-heavy-inv",
+            "code": 59397,
+            "src" : "meteocons"
+        },
+        {
+            "uid" : "da72ab64b02d997ff0521339f2997233",
+            "css" : "hash",
+            "code": 61481,
+            "src" : "mfglabs"
+        }
+    ]
+}

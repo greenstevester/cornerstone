@@ -9,7 +9,7 @@ export class CardElement extends Stone {
   title = '';
 
   @property()
-  imageUrl: string = '';
+  icon: string = '';
 
   @property({})
   height: string = '';
@@ -22,20 +22,26 @@ export class CardElement extends Stone {
   }
 
   protected render(): any {
+    let icon = html`
+             <div class="row icon-row center-container" >
+                <div class="icon-circle center-container">
+                    <i class="demo-icon icon-${this.icon}"></i>
+                </div>
+            </div>
+    `;
+
     return html`
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <style>
-           div {
-            height: ${this.height};
+           :host {
+                height: ${this.height};
            }
         </style>
         <div>
-        <span style="font-size: 48px; color: Dodgerblue;">
-            <i class="fas fa-igloo"></i>
-        </span>
-            <img src="${this.imageUrl}"/>
-            <h2>${this.title}</h2>
-            <stn-card-body>
+            ${this.icon ? icon : html``}
+            <div class="row">
+               <h2>${this.title}</h2>
+            </div>
+            <stn-card-body class="row">
                 <slot></slot>
             </stn-card-body>
         </div>

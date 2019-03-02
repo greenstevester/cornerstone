@@ -9,7 +9,7 @@ fixture`Getting Started`
 
 test('card feature should show three cards', async t => {
   await t.expect(await ShadowSelector(t, 'ws-workshop ws-example')
-    .countComponents(['stn-card'])).eql(3)
+    .countComponents(['stn-card'])).eql(4)
 });
 
 test('card should show an h2 title', async t => {

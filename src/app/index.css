@@ -1,12 +1,12 @@
 @import "../../node_modules/milligram/dist/milligram.css";
-@import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "../cornerstone/fontello/css/small-set.css";
 
 /* THEME CSS*/
 @import "../theme.css";
 
 /* APP OVERRIDES*/
 body {
-  background: var(--color-primary-1);
+    background: var(--white);
   color: var(--dark);
   font-family: sans-serif;
   padding-top: 0;
@@ -40,11 +40,11 @@ h3 {
 }
 
 .logo {
-  width: 35rem;
+    width: 25rem;
 }
 
 .logo-section {
-  //width: 400px;
+    width: 400px;
   margin: 0 auto;
   border: var(--dark) solid 0.125rem;
 }
@@ -97,15 +97,15 @@ stn-menu .container {
 }
 
 stn-menu .row {
-  background: var(--color-secondary-1-2);
+    background: var(--color-secondary-1-5);
   padding-top: 2rem;
   padding-bottom: 0.3rem;
-  border-bottom: var(--color-secondary-2-4) solid 0.3rem;
+    border-bottom: var(--color-secondary-2-3) solid 0.3rem;
 }
 
 #banner {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+    margin-top: 8rem;
+    margin-bottom: 10rem;
 }
 
 #banner .column-50 {
@@ -114,4 +114,8 @@ stn-menu .row {
 
 #banner .column-50:nth-last-of-type(1) {
   margin-left: 3rem;
+}
+
+#footer {
+    margin-top: 8rem;
 }

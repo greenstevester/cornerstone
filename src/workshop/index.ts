@@ -28,11 +28,17 @@ function initExamples() {
       (): TemplateResult => {
         DynamicComponents.await.card();
         return html`
+              <h2>simple</h2>
               <div class="row">
-                <stn-card title="The First"  class="column" height="35rem"> this is content </stn-card>
-                <stn-card title="The Second" class="column" height="35rem"> this is content </stn-card>
-                <stn-card title="The Third"  class="column" height="35rem"> this is content </stn-card>
+                <stn-card title="The First" class="column column-33" height="25rem" > this is content </stn-card>
               </div>
+              <h2>icon</h2>
+              <div class="row">
+                <stn-card title="The Second"  class="column column-33" height="35rem" icon="cubes"> this is content </stn-card>
+                <stn-card title="The Third" class="column column-33" height="35rem" icon="hash"> this is content </stn-card>
+                <stn-card title="The Forth"  class="column column-33" height="35rem" icon="thumbs-up"> this is content </stn-card>
+              </div>
+
               `
     })
     .add(

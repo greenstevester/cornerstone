@@ -1,0 +1,56 @@
+
+.icon-emo-happy:before {
+    content: '\e800';
+}
+
+/* '' */
+.icon-map:before {
+    content: '\e801';
+}
+
+/* '' */
+.icon-emo-unhappy:before {
+    content: '\e802';
+}
+
+/* '' */
+.icon-thumbs-up:before {
+    content: '\e803';
+}
+
+/* '' */
+.icon-resize-normal:before {
+    content: '\e804';
+}
+
+/* '' */
+.icon-snow-heavy-inv:before {
+    content: '\e805';
+}
+
+/* '' */
+.icon-hash:before {
+    content: '\f029';
+}
+
+/* '' */
+.icon-beaker:before {
+    content: '\f0c3';
+}
+
+/* '' */
+.icon-cube:before {
+    content: '\f1b2';
+}
+
+/* '' */
+.icon-cubes:before {
+    content: '\f1b3';
+}
+
+/* '' */
+.icon-hourglass-2:before {
+    content: '\f252';
+}
+
+/* '' */

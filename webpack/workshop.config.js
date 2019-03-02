@@ -105,10 +105,10 @@ module.exports = function configure(env, argv, wdir) {
         chunks: 'all',
       },
     },
-    performance: {
-      hints: 'error',
-      maxEntrypointSize: 250400,
-      maxAssetSize: 2048000,
-    },
+    // performance: {
+    //   hints: 'error',
+    //   maxEntrypointSize: 250400,
+    //   maxAssetSize: 2048000,
+    // },
   };
 };
