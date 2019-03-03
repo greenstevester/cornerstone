@@ -25,7 +25,12 @@ export class WorkshopMenu extends Facade {
     }
 
     return html`
-      
+      <style>
+        h5 {
+            color: var(--white);
+            font-weight: bolder ;
+        }
+      </style>
       <h2>${this.service.getTitle()}</h2>
       <ul>
         <li><button @click="${() => this.choose('')}">home</button></li>

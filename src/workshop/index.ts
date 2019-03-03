@@ -22,6 +22,7 @@ function initExamples() {
       'Hello World',
       HelloWorldFeature.template,
       HelloWorldFeature.properties)
+    .add('Form', () => html``)
     .add('Web Site Components')
     .add(
       'stn-card',
