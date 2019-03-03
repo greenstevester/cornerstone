@@ -31,10 +31,10 @@ export class Menu extends Facade {
                 }
                 
                 .menu {
-                  background: var(--color-secondary-1-5);
+                  background: var(--dark);
                   padding-top: 2rem;
                   padding-bottom: 0.3rem;
-                  border-bottom: var(--color-secondary-2-3) solid 0.3rem;
+                  border-bottom: var(--color-secondary-1-2) solid 0.3rem;
                 }
             </style>
             <div class="row menu">

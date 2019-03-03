@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 80 400 200" version="1.1" x="0px" y="0px">
+    <g transform="translate(0,-698.0315)">
+        <g style="" fill="none" stroke="none">
+            <path style="" d="m 115.30516,910.56533 53.77299,15.84911 55.7618,-14.51572 -54.75846,-10.12707 z"
+                  points="169.07815,926.41444 224.83995,911.89872 170.08149,901.77165 115.30516,910.56533 " fill="none" stroke="none"/>
+            <path style="" d="m 115.30516,835.30279 0,75.26254 54.77633,-8.79368 0,-61.48072 z"
+                  points="115.30516,910.56533 170.08149,901.77165 170.08149,840.29093 115.30516,835.30279 " fill="none" stroke="none"/>
+            <path style="" d="m 170.08149,840.29093 54.75846,-4.69548 0,76.30327 -54.75846,-10.12707 z"
+                  points="224.83995,835.59545 224.83995,911.89872 170.08149,901.77165 170.08149,840.29093 " fill="none" stroke="none"/>
+            <path style="" d="m 115.30516,835.30279 53.77299,-7.63273 55.7618,7.92539 -54.75846,4.69548 z"
+                  points="169.07815,827.67006 224.83995,835.59545 170.08149,840.29093 115.30516,835.30279 " fill="none" stroke="none"/>
+            <path style="" d="m 169.07815,827.67006 0,98.74438 55.7618,-14.51572 0,-76.30327 z"
+                  points="169.07815,926.41444 224.83995,911.89872 224.83995,835.59545 169.07815,827.67006 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none" stroke-opacity="1"/>
+            <path style="" d="m 115.30516,835.30279 53.77299,-7.63273 0,98.74438 -53.77299,-15.84911 z"
+                  points="169.07815,827.67006 169.07815,926.41444 115.30516,910.56533 115.30516,835.30279 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none" stroke-opacity="1"/>
+        </g>
+        <g style="" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none"
+           stroke-opacity="1">
+            <path style="" d="m 116.19758,1005.2027 52.32912,40.1176 53.82145,-37.0964 -53.48326,-25.86824 z"
+                  points="168.5267,1045.3203 222.34815,1008.2239 168.86489,982.35566 116.19758,1005.2027 " fill="none" stroke="none"/>
+            <path style="" d="m 116.19758,947.33971 0,57.86299 52.66731,-22.84704 0,-47.64482 z"
+                  points="116.19758,1005.2027 168.86489,982.35566 168.86489,934.71084 116.19758,947.33971 " fill="none" stroke="none"/>
+            <path style="" d="m 168.86489,934.71084 53.48326,14.46337 0,59.04969 -53.48326,-25.86824 z"
+                  points="222.34815,949.17421 222.34815,1008.2239 168.86489,982.35566 168.86489,934.71084 " fill="none" stroke="none"/>
+            <path style="" d="m 116.19758,947.33971 52.32912,22.38585 53.82145,-20.55135 -53.48326,-14.46337 z"
+                  points="168.5267,969.72556 222.34815,949.17421 168.86489,934.71084 116.19758,947.33971 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none" stroke-opacity="1"/>
+            <path style="" d="m 168.5267,969.72556 0,75.59474 53.82145,-37.0964 0,-59.04969 z"
+                  points="168.5267,1045.3203 222.34815,1008.2239 222.34815,949.17421 168.5267,969.72556 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none" stroke-opacity="1"/>
+            <path style="" d="m 116.19758,947.33971 52.32912,22.38585 0,75.59474 -52.32912,-40.1176 z"
+                  points="168.5267,969.72556 168.5267,1045.3203 116.19758,1005.2027 116.19758,947.33971 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none" stroke-opacity="1"/>
+        </g>
+        <g style="" fill="none" stroke="#000000" stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none"
+           stroke-opacity="1">
+            <path style="" d="m 169.92297,763.65486 54.31117,-21.72728 0,64.78757 -54.31117,9.21767 z"
+                  points="224.23414,741.92758 224.23414,806.71515 169.92297,815.93282 169.92297,763.65486 " fill="none" stroke="none"/>
+            <path style="" d="m 115.22953,742.72394 0,63.97152 54.69344,9.23736 0,-52.27796 z"
+                  points="115.22953,806.69546 169.92297,815.93282 169.92297,763.65486 115.22953,742.72394 " fill="none" stroke="none"/>
+            <path style="" d="m 115.22953,742.72394 53.29718,-34.56628 55.70743,33.76992 -54.31117,21.72728 z"
+                  points="168.52671,708.15766 224.23414,741.92758 169.92297,763.65486 115.22953,742.72394 " fill="none" stroke="none"/>
+            <path style="" d="m 115.22953,806.69546 53.29718,-14.77515 55.70743,14.79484 -54.31117,9.21767 z"
+                  points="168.52671,791.92031 224.23414,806.71515 169.92297,815.93282 115.22953,806.69546 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-opacity="1" stroke-miterlimit="4" stroke-dasharray="none"/>
+            <path style="" d="m 168.52671,708.15766 0,83.76265 55.70743,14.79484 0,-64.78757 z"
+                  points="168.52671,791.92031 224.23414,806.71515 224.23414,741.92758 168.52671,708.15766 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none" stroke-opacity="1"/>
+            <path style="" d="m 115.22953,742.72394 53.29718,-34.56628 0,83.76265 -53.29718,14.77515 z"
+                  points="168.52671,708.15766 168.52671,791.92031 115.22953,806.69546 115.22953,742.72394 " fill="none" stroke="#000000"
+                  stroke-width="5" stroke-linejoin="round" stroke-miterlimit="4" stroke-dasharray="none" stroke-opacity="1"/>
+        </g>
+    </g>
+</svg>

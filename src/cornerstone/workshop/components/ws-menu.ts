@@ -27,7 +27,7 @@ export class WorkshopMenu extends Facade {
     return html`
       <style>
         h5 {
-            color: var(--white);
+            color: var(--color-secondary-1-1);
             font-weight: bolder ;
         }
       </style>

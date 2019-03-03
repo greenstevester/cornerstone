@@ -11,6 +11,12 @@ export class CardElement extends Stone {
   @property()
   icon: string = '';
 
+  @property({attribute: 'icon-color'})
+  iconColor: string = '';
+
+  @property()
+  background: string = '#9c9c9c';
+
   @property({})
   height: string = '';
 
@@ -34,7 +40,11 @@ export class CardElement extends Stone {
         <style>
            :host {
                 height: ${this.height};
+                background: ${this.background};
            }
+            i {
+                color: ${this.iconColor};
+            }
         </style>
         <div>
             ${this.icon ? icon : html``}

@@ -8,6 +8,7 @@
         "test.integration": "testcafe --live",
         "lint"            : "tslint --project .",
         "build.app"       : "webpack --mode production",
+        "build.app.watch" : "webpack --watch --mode production",
         "build.workshop"  : "webpack --mode production --workshop",
         "serve.app"       : "webpack-dev-server --mode production",
         "serve.workshop"  : "webpack-dev-server --mode production --workshop",

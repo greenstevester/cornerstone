@@ -17,13 +17,13 @@ function initExamples() {
   features.setIntro('Welcome to the Cornerstone Workshop ', welcome);
 
   features
-    .add('Getting Started')
+    .add('getting started')
     .add(
       'Hello World',
       HelloWorldFeature.template,
       HelloWorldFeature.properties)
     .add('Form', () => html``)
-    .add('Web Site Components')
+    .add('site components')
     .add(
       'stn-card',
       (): TemplateResult => {
@@ -35,9 +35,9 @@ function initExamples() {
               </div>
               <h2>icon</h2>
               <div class="row">
-                <stn-card title="The Second"  class="column column-33" height="35rem" icon="cubes"> this is content </stn-card>
-                <stn-card title="The Third" class="column column-33" height="35rem" icon="hash"> this is content </stn-card>
-                <stn-card title="The Forth"  class="column column-33" height="35rem" icon="thumbs-up"> this is content </stn-card>
+                <stn-card title="The Second"  class="column column-33" height="35rem" icon="cubes" icon-color="#0084E7" background="#0084E7"> this is content </stn-card>
+                <stn-card title="The Third" class="column column-33" height="35rem" icon="hash" icon-color="#00A3B2" background="#00A3B2"> this is content </stn-card>
+                <stn-card title="The Forth"  class="column column-33" height="35rem" icon="thumbs-up" icon-color="#00B281" background="#00B281"> this is content </stn-card>
               </div>
 
               `

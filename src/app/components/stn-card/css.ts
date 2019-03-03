@@ -4,14 +4,14 @@ export const styles = css`
                         :host {
                             display: block; 
                             font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-                            font-size: 1.6em;
+                            font-size: 1em;
                             font-weight: 300;
                             letter-spacing: .01em;
                             line-height: 1.6;
-                            -moz-box-shadow:    0.5rem 0.5rem 0.25rem 0 var(--color-secondary-2-0);
-                            -webkit-box-shadow: 0.5rem 0.5rem 0.25rem 0 var(--color-secondary-2-0);
-                            box-shadow:         0.5rem 0.5rem 0.25rem 0 var(--color-secondary-2-0);
-                            border: var(--color-secondary-2-4) solid 0.26rem;
+                            /*-moz-box-shadow:    0.5rem 0.5rem 0.25rem 0 var(--color-secondary-2-0);*/
+                            /*-webkit-box-shadow: 0.5rem 0.5rem 0.25rem 0 var(--color-secondary-2-0);*/
+                            /*box-shadow:         0.5rem 0.5rem 0.25rem 0 var(--color-secondary-2-0);*/
+                            /*border: var(--color-secondary-2-4) solid 0.26rem;*/
                             padding: 1rem;
                             margin: 2rem;
                         }
@@ -26,11 +26,17 @@ export const styles = css`
                             font-family: small-set;
                             font-style: normal;
                             font-size: 4rem;
+                          
                        
                         }
                         
-                        h2, stn-card-body, span, i {
+                        i {
+                        text-align: center;
+                        }
+                        
+                        h2, stn-card-body {
                             text-align: center;
+                            color: var(--light);
                         }
                         
 
@@ -49,10 +55,10 @@ export const styles = css`
                         .icon-circle { 
                           width: 7rem; 
                           height: 7rem; 
-                          border: var(--color-secondary-2-4) solid 0.26rem;
+                          /*border: var(--color-secondary-2-4) solid 0.26rem;*/
                           border-radius: 50%;
                           text-align: center;
-                          
+                          background: var(--white);
                         }
                         
                         stn-card-body {
