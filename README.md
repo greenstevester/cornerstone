@@ -1,6 +1,6 @@
 # Cornerstone
 
-A webapack-based seed project that's a good starting place for modern JS/TS web applications. An attempt to make web development productive without the lock-in of Big Frameworks and multiple cli's!
+A webpack-based seed project that's a good starting place for modern JS/TS web applications. An attempt to make web development productive without the lock-in of Big Frameworks and multiple cli's!
 
 If you are wondering 'Why one more seed project'? -> [Why?](documentation/WHY.md)
 
